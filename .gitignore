@@ -1,0 +1,12 @@
+﻿################################################################################
+# This .gitignore file was automatically created by Microsoft(R) Visual Studio.
+################################################################################
+
+/UPSBrowser/obj/Debug
+/UPSBrowser/bin/Debug
+/UPSBrowser/pkg/Debug/UPSBrowser
+/UPSBrowser/pkgobj/Debug
+/UPSBrowserLogger/bin/Debug
+/UPSBrowserLogger/obj/Debug
+/UPSBrowserLogger/pkg/Debug/UPSBrowserLogger
+/UPSBrowserLogger/pkgobj/Debug

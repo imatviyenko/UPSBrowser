@@ -1,0 +1,4 @@
+cd C:\Work\source\UPSBrowser\UPSBrowser\lib
+
+"C:\Program Files (x86)\Microsoft SDKs\Windows\v10.0A\bin\NETFX 4.6.1 Tools\ildasm" jose-jwt.dll /out:jose-jwt.il
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\ilasm jose-jwt.il /dll /key=key.snk /out:jose-jwt_signed.dll

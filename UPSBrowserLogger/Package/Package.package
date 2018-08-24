@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="5529df53-b21a-49e0-8ba1-4058dbdc11ab" solutionId="5529df53-b21a-49e0-8ba1-4058dbdc11ab" resetWebServer="false" sharePointProductVersion="15.0" name="UPSBrowserLogger" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <features>
+    <featureReference itemId="16a9bddf-7546-429b-85d3-3a27e24737ea" />
+  </features>
+</package>
