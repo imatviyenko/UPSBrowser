@@ -56,7 +56,12 @@ namespace Kcell.UPSBrowser
                 {
                     // otherwise instantiate and register the new instance, which requires farm administrator privileges
                     svc = new UPSBrowserLogger();
-                    //svc.Update();
+                    svc.Update();
+
+                    if (svc.Status != SPObjectStatus.Online)
+                    {
+                        svc.Provision();
+                    };
                 });
                 return svc;
             }

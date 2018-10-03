@@ -38,9 +38,8 @@
 
   .custom instance void [mscorlib]System.Reflection.AssemblyInformationalVersionAttribute::.ctor(string) = ( 01 00 05 32 2E 34 2E 30 00 00 )                   // ...2.4.0..
   .custom instance void [mscorlib]System.Resources.NeutralResourcesLanguageAttribute::.ctor(string) = ( 01 00 05 65 6E 2D 55 53 00 00 )                   // ...en-US..
-  .custom instance void [mscorlib]System.Runtime.Versioning.TargetFrameworkAttribute::.ctor(string) = ( 01 00 1C 2E 4E 45 54 46 72 61 6D 65 77 6F 72 6B   // ....NETFramework
-                                                                                                        2C 56 65 72 73 69 6F 6E 3D 76 34 2E 36 2E 31 00   // ,Version=v4.6.1.
-                                                                                                        00 ) 
+  .custom instance void [mscorlib]System.Runtime.Versioning.TargetFrameworkAttribute::.ctor(string) = ( 01 00 1A 2E 4E 45 54 46 72 61 6D 65 77 6F 72 6B   // ....NETFramework
+                                                                                                        2C 56 65 72 73 69 6F 6E 3D 76 34 2E 30 00 00 )    // ,Version=v4.0..
   .custom instance void [mscorlib]System.Reflection.AssemblyTitleAttribute::.ctor(string) = ( 01 00 08 6A 6F 73 65 2D 6A 77 74 00 00 )          // ...jose-jwt..
   .custom instance void [mscorlib]System.Reflection.AssemblyDescriptionAttribute::.ctor(string) = ( 01 00 49 55 6C 74 69 6D 61 74 65 20 4A 61 76 61   // ..IUltimate Java
                                                                                                     20 4F 62 6A 65 63 74 20 53 69 67 6E 69 6E 67 20   //  Object Signing 
@@ -59,13 +58,13 @@
   .ver 2:4:0:0
 }
 .module 'jose-jwt.dll'
-// MVID: {BAAF161D-6F74-4100-B3A1-680A496ADF7D}
+// MVID: {AAE114EF-C1B7-4200-AB90-E44D47BF2EAC}
 .imagebase 0x10000000
 .file alignment 0x00000200
 .stackreserve 0x00100000
 .subsystem 0x0003       // WINDOWS_CUI
 .corflags 0x00000001    //  ILONLY
-// Image base: 0x007D0000
+// Image base: 0x011F0000
 
 
 // =============== CLASS MEMBERS DECLARATION ===================
@@ -973,32 +972,33 @@
     .param [5] = nullref
     .param [6] = nullref
     .param [7] = nullref
-    // Code size       42 (0x2a)
+    // Code size       43 (0x2b)
     .maxstack  8
     IL_0000:  ldarg.0
     IL_0001:  ldstr      "Payload expected to be not empty, whitespace or nu"
     + "ll."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       void Jose.Ensure::IsNotEmpty(string,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       void Jose.Ensure::IsNotEmpty(string,
                                                       string,
                                                       object[])
-    IL_0010:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0015:  ldarg.0
-    IL_0016:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_001b:  ldarg.1
-    IL_001c:  ldarg.2
-    IL_001d:  ldarg.3
-    IL_001e:  ldarg.s    compression
-    IL_0020:  ldarg.s    extraHeaders
-    IL_0022:  ldarg.s    settings
-    IL_0024:  call       string Jose.JWT::EncodeBytes(uint8[],
+    IL_0011:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0016:  ldarg.0
+    IL_0017:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_001c:  ldarg.1
+    IL_001d:  ldarg.2
+    IL_001e:  ldarg.3
+    IL_001f:  ldarg.s    compression
+    IL_0021:  ldarg.s    extraHeaders
+    IL_0023:  ldarg.s    settings
+    IL_0025:  call       string Jose.JWT::EncodeBytes(uint8[],
                                                       object,
                                                       valuetype Jose.JweAlgorithm,
                                                       valuetype Jose.JweEncryption,
                                                       valuetype [mscorlib]System.Nullable`1<valuetype Jose.JweCompression>,
                                                       class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                       class Jose.JwtSettings)
-    IL_0029:  ret
+    IL_002a:  ret
   } // end of method JWT::Encode
 
   .method public hidebysig static string 
@@ -1209,28 +1209,29 @@
   {
     .param [4] = nullref
     .param [5] = nullref
-    // Code size       38 (0x26)
+    // Code size       39 (0x27)
     .maxstack  8
     IL_0000:  ldarg.0
     IL_0001:  ldstr      "Payload expected to be not empty, whitespace or nu"
     + "ll."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       void Jose.Ensure::IsNotEmpty(string,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       void Jose.Ensure::IsNotEmpty(string,
                                                       string,
                                                       object[])
-    IL_0010:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0015:  ldarg.0
-    IL_0016:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_001b:  ldarg.1
-    IL_001c:  ldarg.2
-    IL_001d:  ldarg.3
-    IL_001e:  ldarg.s    settings
-    IL_0020:  call       string Jose.JWT::EncodeBytes(uint8[],
+    IL_0011:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0016:  ldarg.0
+    IL_0017:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_001c:  ldarg.1
+    IL_001d:  ldarg.2
+    IL_001e:  ldarg.3
+    IL_001f:  ldarg.s    settings
+    IL_0021:  call       string Jose.JWT::EncodeBytes(uint8[],
                                                       object,
                                                       valuetype Jose.JwsAlgorithm,
                                                       class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                       class Jose.JwtSettings)
-    IL_0025:  ret
+    IL_0026:  ret
   } // end of method JWT::Encode
 
   .method public hidebysig static string 
@@ -1611,7 +1612,7 @@
     .param [4] = nullref
     .param [5] = nullref
     .param [6] = nullref
-    // Code size       246 (0xf6)
+    // Code size       247 (0xf7)
     .maxstack  5
     .locals init (uint8[][] V_0,
              uint8[] V_1,
@@ -1625,126 +1626,127 @@
     IL_0000:  ldarg.0
     IL_0001:  ldstr      "Incoming token expected to be in compact serializa"
     + "tion form, not empty, whitespace or null."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       void Jose.Ensure::IsNotEmpty(string,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       void Jose.Ensure::IsNotEmpty(string,
                                                       string,
                                                       object[])
-    IL_0010:  ldarg.0
-    IL_0011:  call       uint8[][] Jose.Compact::Parse(string)
-    IL_0016:  stloc.0
-    IL_0017:  ldloc.0
-    IL_0018:  ldlen
-    IL_0019:  conv.i4
-    IL_001a:  ldc.i4.5
-    IL_001b:  bne.un.s   IL_002a
+    IL_0011:  ldarg.0
+    IL_0012:  call       uint8[][] Jose.Compact::Parse(string)
+    IL_0017:  stloc.0
+    IL_0018:  ldloc.0
+    IL_0019:  ldlen
+    IL_001a:  conv.i4
+    IL_001b:  ldc.i4.5
+    IL_001c:  bne.un.s   IL_002b
 
-    IL_001d:  ldloc.0
-    IL_001e:  ldarg.1
-    IL_001f:  ldarg.3
-    IL_0020:  ldarg.s    expectedJweEnc
-    IL_0022:  ldarg.s    settings
-    IL_0024:  call       uint8[] Jose.JWT::DecryptBytes(uint8[][],
+    IL_001e:  ldloc.0
+    IL_001f:  ldarg.1
+    IL_0020:  ldarg.3
+    IL_0021:  ldarg.s    expectedJweEnc
+    IL_0023:  ldarg.s    settings
+    IL_0025:  call       uint8[] Jose.JWT::DecryptBytes(uint8[][],
                                                         object,
                                                         valuetype [mscorlib]System.Nullable`1<valuetype Jose.JweAlgorithm>,
                                                         valuetype [mscorlib]System.Nullable`1<valuetype Jose.JweEncryption>,
                                                         class Jose.JwtSettings)
-    IL_0029:  ret
+    IL_002a:  ret
 
-    IL_002a:  ldloc.0
-    IL_002b:  ldc.i4.0
-    IL_002c:  ldelem.ref
-    IL_002d:  stloc.1
-    IL_002e:  ldloc.0
-    IL_002f:  ldc.i4.1
-    IL_0030:  ldelem.ref
-    IL_0031:  stloc.2
-    IL_0032:  ldloc.0
-    IL_0033:  ldc.i4.2
-    IL_0034:  ldelem.ref
-    IL_0035:  stloc.3
-    IL_0036:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_003b:  ldc.i4.2
-    IL_003c:  newarr     uint8[]
-    IL_0041:  dup
-    IL_0042:  ldc.i4.0
-    IL_0043:  ldloc.1
-    IL_0044:  stelem.ref
-    IL_0045:  dup
-    IL_0046:  ldc.i4.1
-    IL_0047:  ldloc.2
-    IL_0048:  stelem.ref
-    IL_0049:  call       string Jose.Compact::Serialize(uint8[][])
-    IL_004e:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_0053:  stloc.s    V_4
-    IL_0055:  ldarg.s    settings
-    IL_0057:  call       class Jose.JwtSettings Jose.JWT::GetSettings(class Jose.JwtSettings)
-    IL_005c:  dup
-    IL_005d:  callvirt   instance class Jose.IJsonMapper Jose.JwtSettings::get_JsonMapper()
-    IL_0062:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0067:  ldloc.1
-    IL_0068:  callvirt   instance string [mscorlib]System.Text.Encoding::GetString(uint8[])
-    IL_006d:  callvirt   instance !!0 Jose.IJsonMapper::Parse<class [mscorlib]System.Collections.Generic.Dictionary`2<string,object>>(string)
-    IL_0072:  ldstr      "alg"
-    IL_0077:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.Dictionary`2<string,object>::get_Item(!0)
-    IL_007c:  castclass  [mscorlib]System.String
-    IL_0081:  stloc.s    V_5
-    IL_0083:  dup
-    IL_0084:  ldloc.s    V_5
-    IL_0086:  callvirt   instance valuetype Jose.JwsAlgorithm Jose.JwtSettings::JwsAlgorithmFromHeader(string)
-    IL_008b:  stloc.s    V_6
-    IL_008d:  ldarga.s   expectedJwsAlg
-    IL_008f:  call       instance bool valuetype [mscorlib]System.Nullable`1<valuetype Jose.JwsAlgorithm>::get_HasValue()
-    IL_0094:  brfalse.s  IL_00c2
+    IL_002b:  ldloc.0
+    IL_002c:  ldc.i4.0
+    IL_002d:  ldelem.ref
+    IL_002e:  stloc.1
+    IL_002f:  ldloc.0
+    IL_0030:  ldc.i4.1
+    IL_0031:  ldelem.ref
+    IL_0032:  stloc.2
+    IL_0033:  ldloc.0
+    IL_0034:  ldc.i4.2
+    IL_0035:  ldelem.ref
+    IL_0036:  stloc.3
+    IL_0037:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_003c:  ldc.i4.2
+    IL_003d:  newarr     uint8[]
+    IL_0042:  dup
+    IL_0043:  ldc.i4.0
+    IL_0044:  ldloc.1
+    IL_0045:  stelem.ref
+    IL_0046:  dup
+    IL_0047:  ldc.i4.1
+    IL_0048:  ldloc.2
+    IL_0049:  stelem.ref
+    IL_004a:  call       string Jose.Compact::Serialize(uint8[][])
+    IL_004f:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_0054:  stloc.s    V_4
+    IL_0056:  ldarg.s    settings
+    IL_0058:  call       class Jose.JwtSettings Jose.JWT::GetSettings(class Jose.JwtSettings)
+    IL_005d:  dup
+    IL_005e:  callvirt   instance class Jose.IJsonMapper Jose.JwtSettings::get_JsonMapper()
+    IL_0063:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0068:  ldloc.1
+    IL_0069:  callvirt   instance string [mscorlib]System.Text.Encoding::GetString(uint8[])
+    IL_006e:  callvirt   instance !!0 Jose.IJsonMapper::Parse<class [mscorlib]System.Collections.Generic.Dictionary`2<string,object>>(string)
+    IL_0073:  ldstr      "alg"
+    IL_0078:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.Dictionary`2<string,object>::get_Item(!0)
+    IL_007d:  castclass  [mscorlib]System.String
+    IL_0082:  stloc.s    V_5
+    IL_0084:  dup
+    IL_0085:  ldloc.s    V_5
+    IL_0087:  callvirt   instance valuetype Jose.JwsAlgorithm Jose.JwtSettings::JwsAlgorithmFromHeader(string)
+    IL_008c:  stloc.s    V_6
+    IL_008e:  ldarga.s   expectedJwsAlg
+    IL_0090:  call       instance bool valuetype [mscorlib]System.Nullable`1<valuetype Jose.JwsAlgorithm>::get_HasValue()
+    IL_0095:  brfalse.s  IL_00c3
 
-    IL_0096:  ldarg.2
-    IL_0097:  stloc.s    V_7
-    IL_0099:  ldloc.s    V_6
-    IL_009b:  stloc.s    V_8
-    IL_009d:  ldloca.s   V_7
-    IL_009f:  call       instance !0 valuetype [mscorlib]System.Nullable`1<valuetype Jose.JwsAlgorithm>::GetValueOrDefault()
-    IL_00a4:  ldloc.s    V_8
-    IL_00a6:  beq.s      IL_00ab
+    IL_0097:  ldarg.2
+    IL_0098:  stloc.s    V_7
+    IL_009a:  ldloc.s    V_6
+    IL_009c:  stloc.s    V_8
+    IL_009e:  ldloca.s   V_7
+    IL_00a0:  call       instance !0 valuetype [mscorlib]System.Nullable`1<valuetype Jose.JwsAlgorithm>::GetValueOrDefault()
+    IL_00a5:  ldloc.s    V_8
+    IL_00a7:  beq.s      IL_00ac
 
-    IL_00a8:  ldc.i4.1
-    IL_00a9:  br.s       IL_00b5
+    IL_00a9:  ldc.i4.1
+    IL_00aa:  br.s       IL_00b6
 
-    IL_00ab:  ldloca.s   V_7
-    IL_00ad:  call       instance bool valuetype [mscorlib]System.Nullable`1<valuetype Jose.JwsAlgorithm>::get_HasValue()
-    IL_00b2:  ldc.i4.0
-    IL_00b3:  ceq
-    IL_00b5:  brfalse.s  IL_00c2
+    IL_00ac:  ldloca.s   V_7
+    IL_00ae:  call       instance bool valuetype [mscorlib]System.Nullable`1<valuetype Jose.JwsAlgorithm>::get_HasValue()
+    IL_00b3:  ldc.i4.0
+    IL_00b4:  ceq
+    IL_00b6:  brfalse.s  IL_00c3
 
-    IL_00b7:  ldstr      "The algorithm type passed to the Decode method did"
+    IL_00b8:  ldstr      "The algorithm type passed to the Decode method did"
     + " not match the algorithm type in the header."
-    IL_00bc:  newobj     instance void Jose.InvalidAlgorithmException::.ctor(string)
-    IL_00c1:  throw
+    IL_00bd:  newobj     instance void Jose.InvalidAlgorithmException::.ctor(string)
+    IL_00c2:  throw
 
-    IL_00c2:  ldloc.s    V_6
-    IL_00c4:  callvirt   instance class Jose.IJwsAlgorithm Jose.JwtSettings::Jws(valuetype Jose.JwsAlgorithm)
-    IL_00c9:  dup
-    IL_00ca:  brtrue.s   IL_00de
+    IL_00c3:  ldloc.s    V_6
+    IL_00c5:  callvirt   instance class Jose.IJwsAlgorithm Jose.JwtSettings::Jws(valuetype Jose.JwsAlgorithm)
+    IL_00ca:  dup
+    IL_00cb:  brtrue.s   IL_00df
 
-    IL_00cc:  ldstr      "Unsupported JWS algorithm requested: {0}"
-    IL_00d1:  ldloc.s    V_5
-    IL_00d3:  call       string [mscorlib]System.String::Format(string,
+    IL_00cd:  ldstr      "Unsupported JWS algorithm requested: {0}"
+    IL_00d2:  ldloc.s    V_5
+    IL_00d4:  call       string [mscorlib]System.String::Format(string,
                                                                 object)
-    IL_00d8:  newobj     instance void Jose.JoseException::.ctor(string)
-    IL_00dd:  throw
+    IL_00d9:  newobj     instance void Jose.JoseException::.ctor(string)
+    IL_00de:  throw
 
-    IL_00de:  ldloc.3
-    IL_00df:  ldloc.s    V_4
-    IL_00e1:  ldarg.1
-    IL_00e2:  callvirt   instance bool Jose.IJwsAlgorithm::Verify(uint8[],
+    IL_00df:  ldloc.3
+    IL_00e0:  ldloc.s    V_4
+    IL_00e2:  ldarg.1
+    IL_00e3:  callvirt   instance bool Jose.IJwsAlgorithm::Verify(uint8[],
                                                                   uint8[],
                                                                   object)
-    IL_00e7:  brtrue.s   IL_00f4
+    IL_00e8:  brtrue.s   IL_00f5
 
-    IL_00e9:  ldstr      "Invalid signature."
-    IL_00ee:  newobj     instance void Jose.IntegrityException::.ctor(string)
-    IL_00f3:  throw
+    IL_00ea:  ldstr      "Invalid signature."
+    IL_00ef:  newobj     instance void Jose.IntegrityException::.ctor(string)
+    IL_00f4:  throw
 
-    IL_00f4:  ldloc.2
-    IL_00f5:  ret
+    IL_00f5:  ldloc.2
+    IL_00f6:  ret
   } // end of method JWT::DecodeBytes
 
   .method private hidebysig static string 
@@ -2766,19 +2768,19 @@
     IL_00a3:  dup
     IL_00a4:  ldc.i4.s   10
     IL_00a6:  ldc.i4     0x100
-    IL_00ab:  newobj     instance void Jose.netstandard1_4.EcdsaUsingSha::.ctor(int32)
+    IL_00ab:  newobj     instance void Jose.EcdsaUsingSha::.ctor(int32)
     IL_00b0:  callvirt   instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Jose.JwsAlgorithm,class Jose.IJwsAlgorithm>::Add(!0,
                                                                                                                                                           !1)
     IL_00b5:  dup
     IL_00b6:  ldc.i4.s   11
     IL_00b8:  ldc.i4     0x180
-    IL_00bd:  newobj     instance void Jose.netstandard1_4.EcdsaUsingSha::.ctor(int32)
+    IL_00bd:  newobj     instance void Jose.EcdsaUsingSha::.ctor(int32)
     IL_00c2:  callvirt   instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Jose.JwsAlgorithm,class Jose.IJwsAlgorithm>::Add(!0,
                                                                                                                                                           !1)
     IL_00c7:  dup
     IL_00c8:  ldc.i4.s   12
     IL_00ca:  ldc.i4     0x209
-    IL_00cf:  newobj     instance void Jose.netstandard1_4.EcdsaUsingSha::.ctor(int32)
+    IL_00cf:  newobj     instance void Jose.EcdsaUsingSha::.ctor(int32)
     IL_00d4:  callvirt   instance void class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Jose.JwsAlgorithm,class Jose.IJwsAlgorithm>::Add(!0,
                                                                                                                                                           !1)
     IL_00d9:  stfld      class [mscorlib]System.Collections.Generic.Dictionary`2<valuetype Jose.JwsAlgorithm,class Jose.IJwsAlgorithm> Jose.JwtSettings::jwsAlgorithms
@@ -5502,7 +5504,7 @@
                                          object key,
                                          class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       146 (0x92)
+    // Code size       148 (0x94)
     .maxstack  6
     .locals init (uint8[] V_0,
              uint8[] V_1,
@@ -5511,78 +5513,80 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "AesGcmKeyWrapManagement alg expectes key to be byt"
     + "e[] array."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldloc.0
-    IL_0012:  ldarg.0
-    IL_0013:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
-    IL_0018:  conv.i8
-    IL_0019:  ldstr      "AesGcmKeyWrapManagement management algorithm expec"
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  ldarg.0
+    IL_0014:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
+    IL_0019:  conv.i8
+    IL_001a:  ldstr      "AesGcmKeyWrapManagement management algorithm expec"
     + "ted key of size {0} bits, but was given {1} bits"
-    IL_001e:  ldarg.0
-    IL_001f:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
-    IL_0024:  box        [mscorlib]System.Int32
-    IL_0029:  ldloc.0
-    IL_002a:  ldlen
-    IL_002b:  conv.i4
-    IL_002c:  conv.i8
-    IL_002d:  ldc.i4.8
-    IL_002e:  conv.i8
-    IL_002f:  mul
-    IL_0030:  box        [mscorlib]System.Int64
-    IL_0035:  call       string [mscorlib]System.String::Format(string,
+    IL_001f:  ldarg.0
+    IL_0020:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
+    IL_0025:  box        [mscorlib]System.Int32
+    IL_002a:  ldloc.0
+    IL_002b:  ldlen
+    IL_002c:  conv.i4
+    IL_002d:  conv.i8
+    IL_002e:  ldc.i4.8
+    IL_002f:  conv.i8
+    IL_0030:  mul
+    IL_0031:  box        [mscorlib]System.Int64
+    IL_0036:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_003a:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_003f:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_003b:  ldc.i4.0
+    IL_003c:  newarr     [mscorlib]System.Object
+    IL_0041:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0044:  ldc.i4.s   96
-    IL_0046:  call       uint8[] Jose.Arrays::Random(int32)
-    IL_004b:  stloc.1
-    IL_004c:  ldarg.1
-    IL_004d:  call       uint8[] Jose.Arrays::Random(int32)
-    IL_0052:  stloc.2
-    IL_0053:  ldloc.0
-    IL_0054:  ldloc.1
-    IL_0055:  ldnull
-    IL_0056:  ldloc.2
-    IL_0057:  call       uint8[][] Jose.AesGcm::Encrypt(uint8[],
+    IL_0046:  ldc.i4.s   96
+    IL_0048:  call       uint8[] Jose.Arrays::Random(int32)
+    IL_004d:  stloc.1
+    IL_004e:  ldarg.1
+    IL_004f:  call       uint8[] Jose.Arrays::Random(int32)
+    IL_0054:  stloc.2
+    IL_0055:  ldloc.0
+    IL_0056:  ldloc.1
+    IL_0057:  ldnull
+    IL_0058:  ldloc.2
+    IL_0059:  call       uint8[][] Jose.AesGcm::Encrypt(uint8[],
                                                         uint8[],
                                                         uint8[],
                                                         uint8[])
-    IL_005c:  stloc.3
-    IL_005d:  ldarg.3
-    IL_005e:  ldstr      "iv"
-    IL_0063:  ldloc.1
-    IL_0064:  call       string Jose.Base64Url::Encode(uint8[])
-    IL_0069:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_005e:  stloc.3
+    IL_005f:  ldarg.3
+    IL_0060:  ldstr      "iv"
+    IL_0065:  ldloc.1
+    IL_0066:  call       string Jose.Base64Url::Encode(uint8[])
+    IL_006b:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_006e:  ldarg.3
-    IL_006f:  ldstr      "tag"
-    IL_0074:  ldloc.3
-    IL_0075:  ldc.i4.1
-    IL_0076:  ldelem.ref
-    IL_0077:  call       string Jose.Base64Url::Encode(uint8[])
-    IL_007c:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_0070:  ldarg.3
+    IL_0071:  ldstr      "tag"
+    IL_0076:  ldloc.3
+    IL_0077:  ldc.i4.1
+    IL_0078:  ldelem.ref
+    IL_0079:  call       string Jose.Base64Url::Encode(uint8[])
+    IL_007e:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_0081:  ldc.i4.2
-    IL_0082:  newarr     uint8[]
-    IL_0087:  dup
-    IL_0088:  ldc.i4.0
-    IL_0089:  ldloc.2
-    IL_008a:  stelem.ref
-    IL_008b:  dup
-    IL_008c:  ldc.i4.1
-    IL_008d:  ldloc.3
-    IL_008e:  ldc.i4.0
-    IL_008f:  ldelem.ref
-    IL_0090:  stelem.ref
-    IL_0091:  ret
+    IL_0083:  ldc.i4.2
+    IL_0084:  newarr     uint8[]
+    IL_0089:  dup
+    IL_008a:  ldc.i4.0
+    IL_008b:  ldloc.2
+    IL_008c:  stelem.ref
+    IL_008d:  dup
+    IL_008e:  ldc.i4.1
+    IL_008f:  ldloc.3
+    IL_0090:  ldc.i4.0
+    IL_0091:  ldelem.ref
+    IL_0092:  stelem.ref
+    IL_0093:  ret
   } // end of method AesGcmKeyWrapManagement::WrapNewKey
 
   .method public hidebysig newslot virtual final 
@@ -5591,7 +5595,7 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       187 (0xbb)
+    // Code size       191 (0xbf)
     .maxstack  6
     .locals init (uint8[] V_0,
              uint8[] V_1,
@@ -5599,87 +5603,91 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "AesGcmKeyWrapManagement alg expectes key to be byt"
     + "e[] array."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldloc.0
-    IL_0012:  ldarg.0
-    IL_0013:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
-    IL_0018:  conv.i8
-    IL_0019:  ldstr      "AesGcmKeyWrapManagement management algorithm expec"
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  ldarg.0
+    IL_0014:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
+    IL_0019:  conv.i8
+    IL_001a:  ldstr      "AesGcmKeyWrapManagement management algorithm expec"
     + "ted key of size {0} bits, but was given {1} bits"
-    IL_001e:  ldarg.0
-    IL_001f:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
-    IL_0024:  box        [mscorlib]System.Int32
-    IL_0029:  ldloc.0
-    IL_002a:  ldlen
-    IL_002b:  conv.i4
-    IL_002c:  conv.i8
-    IL_002d:  ldc.i4.8
-    IL_002e:  conv.i8
-    IL_002f:  mul
-    IL_0030:  box        [mscorlib]System.Int64
-    IL_0035:  call       string [mscorlib]System.String::Format(string,
+    IL_001f:  ldarg.0
+    IL_0020:  ldfld      int32 Jose.AesGcmKeyWrapManagement::keyLengthBits
+    IL_0025:  box        [mscorlib]System.Int32
+    IL_002a:  ldloc.0
+    IL_002b:  ldlen
+    IL_002c:  conv.i4
+    IL_002d:  conv.i8
+    IL_002e:  ldc.i4.8
+    IL_002f:  conv.i8
+    IL_0030:  mul
+    IL_0031:  box        [mscorlib]System.Int64
+    IL_0036:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_003a:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_003f:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_003b:  ldc.i4.0
+    IL_003c:  newarr     [mscorlib]System.Object
+    IL_0041:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0044:  ldarg.s    header
-    IL_0046:  ldc.i4.1
-    IL_0047:  newarr     [mscorlib]System.String
-    IL_004c:  dup
-    IL_004d:  ldc.i4.0
-    IL_004e:  ldstr      "iv"
-    IL_0053:  stelem.ref
-    IL_0054:  ldstr      "AesGcmKeyWrapManagement algorithm expects 'iv' par"
+    IL_0046:  ldarg.s    header
+    IL_0048:  ldc.i4.1
+    IL_0049:  newarr     [mscorlib]System.String
+    IL_004e:  dup
+    IL_004f:  ldc.i4.0
+    IL_0050:  ldstr      "iv"
+    IL_0055:  stelem.ref
+    IL_0056:  ldstr      "AesGcmKeyWrapManagement algorithm expects 'iv' par"
     + "am in JWT header, but was not found"
-    IL_0059:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_005e:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_005b:  ldc.i4.0
+    IL_005c:  newarr     [mscorlib]System.Object
+    IL_0061:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_0063:  ldarg.s    header
-    IL_0065:  ldc.i4.1
-    IL_0066:  newarr     [mscorlib]System.String
-    IL_006b:  dup
-    IL_006c:  ldc.i4.0
-    IL_006d:  ldstr      "tag"
-    IL_0072:  stelem.ref
-    IL_0073:  ldstr      "AesGcmKeyWrapManagement algorithm expects 'tag' pa"
+    IL_0066:  ldarg.s    header
+    IL_0068:  ldc.i4.1
+    IL_0069:  newarr     [mscorlib]System.String
+    IL_006e:  dup
+    IL_006f:  ldc.i4.0
+    IL_0070:  ldstr      "tag"
+    IL_0075:  stelem.ref
+    IL_0076:  ldstr      "AesGcmKeyWrapManagement algorithm expects 'tag' pa"
     + "ram in JWT header, but was not found"
-    IL_0078:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_007d:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_007b:  ldc.i4.0
+    IL_007c:  newarr     [mscorlib]System.Object
+    IL_0081:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_0082:  ldarg.s    header
-    IL_0084:  ldstr      "iv"
-    IL_0089:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_008e:  castclass  [mscorlib]System.String
-    IL_0093:  call       uint8[] Jose.Base64Url::Decode(string)
-    IL_0098:  stloc.1
-    IL_0099:  ldarg.s    header
-    IL_009b:  ldstr      "tag"
-    IL_00a0:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_00a5:  castclass  [mscorlib]System.String
-    IL_00aa:  call       uint8[] Jose.Base64Url::Decode(string)
-    IL_00af:  stloc.2
-    IL_00b0:  ldloc.0
-    IL_00b1:  ldloc.1
-    IL_00b2:  ldnull
-    IL_00b3:  ldarg.1
-    IL_00b4:  ldloc.2
-    IL_00b5:  call       uint8[] Jose.AesGcm::Decrypt(uint8[],
+    IL_0086:  ldarg.s    header
+    IL_0088:  ldstr      "iv"
+    IL_008d:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_0092:  castclass  [mscorlib]System.String
+    IL_0097:  call       uint8[] Jose.Base64Url::Decode(string)
+    IL_009c:  stloc.1
+    IL_009d:  ldarg.s    header
+    IL_009f:  ldstr      "tag"
+    IL_00a4:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_00a9:  castclass  [mscorlib]System.String
+    IL_00ae:  call       uint8[] Jose.Base64Url::Decode(string)
+    IL_00b3:  stloc.2
+    IL_00b4:  ldloc.0
+    IL_00b5:  ldloc.1
+    IL_00b6:  ldnull
+    IL_00b7:  ldarg.1
+    IL_00b8:  ldloc.2
+    IL_00b9:  call       uint8[] Jose.AesGcm::Decrypt(uint8[],
                                                       uint8[],
                                                       uint8[],
                                                       uint8[],
                                                       uint8[])
-    IL_00ba:  ret
+    IL_00be:  ret
   } // end of method AesGcmKeyWrapManagement::Unwrap
 
 } // end of class Jose.AesGcmKeyWrapManagement
@@ -5707,7 +5715,7 @@
                                          object key,
                                          class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       98 (0x62)
+    // Code size       100 (0x64)
     .maxstack  6
     .locals init (uint8[] V_0,
              uint8[] V_1,
@@ -5715,55 +5723,57 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "AesKeyWrap management algorithm expectes key to be"
     + " byte[] array."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldloc.0
-    IL_0012:  ldarg.0
-    IL_0013:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
-    IL_0018:  conv.i8
-    IL_0019:  ldstr      "AesKeyWrap management algorithm expected key of si"
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  ldarg.0
+    IL_0014:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
+    IL_0019:  conv.i8
+    IL_001a:  ldstr      "AesKeyWrap management algorithm expected key of si"
     + "ze {0} bits, but was given {1} bits"
-    IL_001e:  ldarg.0
-    IL_001f:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
-    IL_0024:  box        [mscorlib]System.Int32
-    IL_0029:  ldloc.0
-    IL_002a:  ldlen
-    IL_002b:  conv.i4
-    IL_002c:  conv.i8
-    IL_002d:  ldc.i4.8
-    IL_002e:  conv.i8
-    IL_002f:  mul
-    IL_0030:  box        [mscorlib]System.Int64
-    IL_0035:  call       string [mscorlib]System.String::Format(string,
+    IL_001f:  ldarg.0
+    IL_0020:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
+    IL_0025:  box        [mscorlib]System.Int32
+    IL_002a:  ldloc.0
+    IL_002b:  ldlen
+    IL_002c:  conv.i4
+    IL_002d:  conv.i8
+    IL_002e:  ldc.i4.8
+    IL_002f:  conv.i8
+    IL_0030:  mul
+    IL_0031:  box        [mscorlib]System.Int64
+    IL_0036:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_003a:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_003f:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_003b:  ldc.i4.0
+    IL_003c:  newarr     [mscorlib]System.Object
+    IL_0041:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0044:  ldarg.1
-    IL_0045:  call       uint8[] Jose.Arrays::Random(int32)
-    IL_004a:  stloc.1
-    IL_004b:  ldloc.1
-    IL_004c:  ldloc.0
-    IL_004d:  call       uint8[] Jose.AesKeyWrap::Wrap(uint8[],
+    IL_0046:  ldarg.1
+    IL_0047:  call       uint8[] Jose.Arrays::Random(int32)
+    IL_004c:  stloc.1
+    IL_004d:  ldloc.1
+    IL_004e:  ldloc.0
+    IL_004f:  call       uint8[] Jose.AesKeyWrap::Wrap(uint8[],
                                                        uint8[])
-    IL_0052:  stloc.2
-    IL_0053:  ldc.i4.2
-    IL_0054:  newarr     uint8[]
-    IL_0059:  dup
-    IL_005a:  ldc.i4.0
-    IL_005b:  ldloc.1
-    IL_005c:  stelem.ref
-    IL_005d:  dup
-    IL_005e:  ldc.i4.1
-    IL_005f:  ldloc.2
-    IL_0060:  stelem.ref
-    IL_0061:  ret
+    IL_0054:  stloc.2
+    IL_0055:  ldc.i4.2
+    IL_0056:  newarr     uint8[]
+    IL_005b:  dup
+    IL_005c:  ldc.i4.0
+    IL_005d:  ldloc.1
+    IL_005e:  stelem.ref
+    IL_005f:  dup
+    IL_0060:  ldc.i4.1
+    IL_0061:  ldloc.2
+    IL_0062:  stelem.ref
+    IL_0063:  ret
   } // end of method AesKeyWrapManagement::WrapNewKey
 
   .method public hidebysig newslot virtual final 
@@ -5772,47 +5782,49 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       76 (0x4c)
+    // Code size       78 (0x4e)
     .maxstack  6
     .locals init (uint8[] V_0)
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "AesKeyWrap management algorithm expectes key to be"
     + " byte[] array."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldloc.0
-    IL_0012:  ldarg.0
-    IL_0013:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
-    IL_0018:  conv.i8
-    IL_0019:  ldstr      "AesKeyWrap management algorithm expected key of si"
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  ldarg.0
+    IL_0014:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
+    IL_0019:  conv.i8
+    IL_001a:  ldstr      "AesKeyWrap management algorithm expected key of si"
     + "ze {0} bits, but was given {1} bits"
-    IL_001e:  ldarg.0
-    IL_001f:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
-    IL_0024:  box        [mscorlib]System.Int32
-    IL_0029:  ldloc.0
-    IL_002a:  ldlen
-    IL_002b:  conv.i4
-    IL_002c:  conv.i8
-    IL_002d:  ldc.i4.8
-    IL_002e:  conv.i8
-    IL_002f:  mul
-    IL_0030:  box        [mscorlib]System.Int64
-    IL_0035:  call       string [mscorlib]System.String::Format(string,
+    IL_001f:  ldarg.0
+    IL_0020:  ldfld      int32 Jose.AesKeyWrapManagement::kekLengthBits
+    IL_0025:  box        [mscorlib]System.Int32
+    IL_002a:  ldloc.0
+    IL_002b:  ldlen
+    IL_002c:  conv.i4
+    IL_002d:  conv.i8
+    IL_002e:  ldc.i4.8
+    IL_002f:  conv.i8
+    IL_0030:  mul
+    IL_0031:  box        [mscorlib]System.Int64
+    IL_0036:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_003a:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_003f:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_003b:  ldc.i4.0
+    IL_003c:  newarr     [mscorlib]System.Object
+    IL_0041:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0044:  ldarg.1
-    IL_0045:  ldloc.0
-    IL_0046:  call       uint8[] Jose.AesKeyWrap::Unwrap(uint8[],
+    IL_0046:  ldarg.1
+    IL_0047:  ldloc.0
+    IL_0048:  call       uint8[] Jose.AesKeyWrap::Unwrap(uint8[],
                                                          uint8[])
-    IL_004b:  ret
+    IL_004d:  ret
   } // end of method AesKeyWrapManagement::Unwrap
 
 } // end of class Jose.AesKeyWrapManagement
@@ -5826,7 +5838,7 @@
                                          object key,
                                          class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       34 (0x22)
+    // Code size       35 (0x23)
     .maxstack  8
     IL_0000:  ldc.i4.2
     IL_0001:  newarr     uint8[]
@@ -5835,16 +5847,17 @@
     IL_0008:  ldarg.2
     IL_0009:  ldstr      "DirectKeyManagement alg expectes key to be byte[] "
     + "array."
-    IL_000e:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_0013:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_000e:  ldc.i4.0
+    IL_000f:  newarr     [mscorlib]System.Object
+    IL_0014:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0018:  stelem.ref
-    IL_0019:  dup
-    IL_001a:  ldc.i4.1
-    IL_001b:  ldsfld     uint8[] Jose.Arrays::Empty
-    IL_0020:  stelem.ref
-    IL_0021:  ret
+    IL_0019:  stelem.ref
+    IL_001a:  dup
+    IL_001b:  ldc.i4.1
+    IL_001c:  ldsfld     uint8[] Jose.Arrays::Empty
+    IL_0021:  stelem.ref
+    IL_0022:  ret
   } // end of method DirectKeyManagement::WrapNewKey
 
   .method public hidebysig newslot virtual final 
@@ -5853,23 +5866,25 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       33 (0x21)
+    // Code size       35 (0x23)
     .maxstack  8
     IL_0000:  ldarg.1
     IL_0001:  ldstr      "DirectKeyManagement expects empty content encrypti"
     + "on key."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       void Jose.Ensure::IsEmpty(uint8[],
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       void Jose.Ensure::IsEmpty(uint8[],
                                                    string,
                                                    object[])
-    IL_0010:  ldarg.2
-    IL_0011:  ldstr      "DirectKeyManagement alg expectes key to be byte[] "
+    IL_0011:  ldarg.2
+    IL_0012:  ldstr      "DirectKeyManagement alg expectes key to be byte[] "
     + "array."
-    IL_0016:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_001b:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_0017:  ldc.i4.0
+    IL_0018:  newarr     [mscorlib]System.Object
+    IL_001d:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0020:  ret
+    IL_0022:  ret
   } // end of method DirectKeyManagement::Unwrap
 
   .method public hidebysig specialname rtspecialname 
@@ -5949,7 +5964,7 @@
                  object key,
                  class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       136 (0x88)
+    // Code size       137 (0x89)
     .maxstack  5
     .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
              class Security.Cryptography.EccKey V_1,
@@ -5957,58 +5972,59 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "EcdhKeyManagement alg expects key to be of CngKey "
     + "type."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
                                                                                                        string,
                                                                                                        object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldloc.0
-    IL_0012:  call       class Security.Cryptography.EccKey Security.Cryptography.EccKey::Generate(class [System.Core]System.Security.Cryptography.CngKey)
-    IL_0017:  stloc.1
-    IL_0018:  newobj     instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string,object>::.ctor()
-    IL_001d:  stloc.2
-    IL_001e:  ldloc.2
-    IL_001f:  ldstr      "kty"
-    IL_0024:  ldstr      "EC"
-    IL_0029:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  call       class Security.Cryptography.EccKey Security.Cryptography.EccKey::Generate(class [System.Core]System.Security.Cryptography.CngKey)
+    IL_0018:  stloc.1
+    IL_0019:  newobj     instance void class [mscorlib]System.Collections.Generic.Dictionary`2<string,object>::.ctor()
+    IL_001e:  stloc.2
+    IL_001f:  ldloc.2
+    IL_0020:  ldstr      "kty"
+    IL_0025:  ldstr      "EC"
+    IL_002a:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_002e:  ldloc.2
-    IL_002f:  ldstr      "x"
-    IL_0034:  ldloc.1
-    IL_0035:  callvirt   instance uint8[] Security.Cryptography.EccKey::get_X()
-    IL_003a:  call       string Jose.Base64Url::Encode(uint8[])
-    IL_003f:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_002f:  ldloc.2
+    IL_0030:  ldstr      "x"
+    IL_0035:  ldloc.1
+    IL_0036:  callvirt   instance uint8[] Security.Cryptography.EccKey::get_X()
+    IL_003b:  call       string Jose.Base64Url::Encode(uint8[])
+    IL_0040:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_0044:  ldloc.2
-    IL_0045:  ldstr      "y"
-    IL_004a:  ldloc.1
-    IL_004b:  callvirt   instance uint8[] Security.Cryptography.EccKey::get_Y()
-    IL_0050:  call       string Jose.Base64Url::Encode(uint8[])
-    IL_0055:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_0045:  ldloc.2
+    IL_0046:  ldstr      "y"
+    IL_004b:  ldloc.1
+    IL_004c:  callvirt   instance uint8[] Security.Cryptography.EccKey::get_Y()
+    IL_0051:  call       string Jose.Base64Url::Encode(uint8[])
+    IL_0056:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_005a:  ldloc.2
-    IL_005b:  ldstr      "crv"
-    IL_0060:  ldarg.0
-    IL_0061:  ldloc.0
-    IL_0062:  call       instance string Jose.EcdhKeyManagement::Curve(class [System.Core]System.Security.Cryptography.CngKey)
-    IL_0067:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_005b:  ldloc.2
+    IL_005c:  ldstr      "crv"
+    IL_0061:  ldarg.0
+    IL_0062:  ldloc.0
+    IL_0063:  call       instance string Jose.EcdhKeyManagement::Curve(class [System.Core]System.Security.Cryptography.CngKey)
+    IL_0068:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_006c:  ldarg.3
-    IL_006d:  ldstr      "epk"
-    IL_0072:  ldloc.2
-    IL_0073:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_006d:  ldarg.3
+    IL_006e:  ldstr      "epk"
+    IL_0073:  ldloc.2
+    IL_0074:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_0078:  ldarg.0
-    IL_0079:  ldarg.3
-    IL_007a:  ldarg.1
-    IL_007b:  ldloc.0
-    IL_007c:  ldloc.1
-    IL_007d:  callvirt   instance class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.EccKey::get_Key()
-    IL_0082:  call       instance uint8[] Jose.EcdhKeyManagement::DeriveKey(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_0079:  ldarg.0
+    IL_007a:  ldarg.3
+    IL_007b:  ldarg.1
+    IL_007c:  ldloc.0
+    IL_007d:  ldloc.1
+    IL_007e:  callvirt   instance class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.EccKey::get_Key()
+    IL_0083:  call       instance uint8[] Jose.EcdhKeyManagement::DeriveKey(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                                             int32,
                                                                             class [System.Core]System.Security.Cryptography.CngKey,
                                                                             class [System.Core]System.Security.Cryptography.CngKey)
-    IL_0087:  ret
+    IL_0088:  ret
   } // end of method EcdhKeyManagement::NewKey
 
   .method public hidebysig newslot virtual 
@@ -6027,7 +6043,7 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       212 (0xd4)
+    // Code size       216 (0xd8)
     .maxstack  5
     .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
              class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> V_1,
@@ -6037,98 +6053,102 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "EcdhKeyManagement alg expects key to be of CngKey "
     + "type."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
                                                                                                        string,
                                                                                                        object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldarg.s    header
-    IL_0013:  ldc.i4.1
-    IL_0014:  newarr     [mscorlib]System.String
-    IL_0019:  dup
-    IL_001a:  ldc.i4.0
-    IL_001b:  ldstr      "epk"
-    IL_0020:  stelem.ref
-    IL_0021:  ldstr      "EcdhKeyManagement algorithm expects 'epk' key para"
+    IL_0011:  stloc.0
+    IL_0012:  ldarg.s    header
+    IL_0014:  ldc.i4.1
+    IL_0015:  newarr     [mscorlib]System.String
+    IL_001a:  dup
+    IL_001b:  ldc.i4.0
+    IL_001c:  ldstr      "epk"
+    IL_0021:  stelem.ref
+    IL_0022:  ldstr      "EcdhKeyManagement algorithm expects 'epk' key para"
     + "m in JWT header, but was not found"
-    IL_0026:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_002b:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_0027:  ldc.i4.0
+    IL_0028:  newarr     [mscorlib]System.Object
+    IL_002d:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_0030:  ldarg.s    header
-    IL_0032:  ldc.i4.1
-    IL_0033:  newarr     [mscorlib]System.String
-    IL_0038:  dup
-    IL_0039:  ldc.i4.0
-    IL_003a:  ldarg.0
-    IL_003b:  ldfld      string Jose.EcdhKeyManagement::algIdHeader
-    IL_0040:  stelem.ref
-    IL_0041:  ldstr      "EcdhKeyManagement algorithm expects 'enc' header t"
+    IL_0032:  ldarg.s    header
+    IL_0034:  ldc.i4.1
+    IL_0035:  newarr     [mscorlib]System.String
+    IL_003a:  dup
+    IL_003b:  ldc.i4.0
+    IL_003c:  ldarg.0
+    IL_003d:  ldfld      string Jose.EcdhKeyManagement::algIdHeader
+    IL_0042:  stelem.ref
+    IL_0043:  ldstr      "EcdhKeyManagement algorithm expects 'enc' header t"
     + "o be present in JWT header, but was not found"
-    IL_0046:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_004b:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_0048:  ldc.i4.0
+    IL_0049:  newarr     [mscorlib]System.Object
+    IL_004e:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_0050:  ldarg.s    header
-    IL_0052:  ldstr      "epk"
-    IL_0057:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_005c:  castclass  class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>
-    IL_0061:  stloc.1
-    IL_0062:  ldloc.1
-    IL_0063:  ldc.i4.3
-    IL_0064:  newarr     [mscorlib]System.String
-    IL_0069:  dup
-    IL_006a:  ldc.i4.0
-    IL_006b:  ldstr      "x"
-    IL_0070:  stelem.ref
-    IL_0071:  dup
-    IL_0072:  ldc.i4.1
-    IL_0073:  ldstr      "y"
-    IL_0078:  stelem.ref
-    IL_0079:  dup
-    IL_007a:  ldc.i4.2
-    IL_007b:  ldstr      "crv"
-    IL_0080:  stelem.ref
-    IL_0081:  ldstr      "EcdhKeyManagement algorithm expects 'epk' key to c"
+    IL_0053:  ldarg.s    header
+    IL_0055:  ldstr      "epk"
+    IL_005a:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_005f:  castclass  class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>
+    IL_0064:  stloc.1
+    IL_0065:  ldloc.1
+    IL_0066:  ldc.i4.3
+    IL_0067:  newarr     [mscorlib]System.String
+    IL_006c:  dup
+    IL_006d:  ldc.i4.0
+    IL_006e:  ldstr      "x"
+    IL_0073:  stelem.ref
+    IL_0074:  dup
+    IL_0075:  ldc.i4.1
+    IL_0076:  ldstr      "y"
+    IL_007b:  stelem.ref
+    IL_007c:  dup
+    IL_007d:  ldc.i4.2
+    IL_007e:  ldstr      "crv"
+    IL_0083:  stelem.ref
+    IL_0084:  ldstr      "EcdhKeyManagement algorithm expects 'epk' key to c"
     + "ontain 'x','y' and 'crv' fields."
-    IL_0086:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_008b:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_0089:  ldc.i4.0
+    IL_008a:  newarr     [mscorlib]System.Object
+    IL_008f:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_0090:  ldloc.1
-    IL_0091:  ldstr      "x"
-    IL_0096:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_009b:  castclass  [mscorlib]System.String
-    IL_00a0:  call       uint8[] Jose.Base64Url::Decode(string)
-    IL_00a5:  stloc.2
-    IL_00a6:  ldloc.1
-    IL_00a7:  ldstr      "y"
-    IL_00ac:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_00b1:  castclass  [mscorlib]System.String
-    IL_00b6:  call       uint8[] Jose.Base64Url::Decode(string)
-    IL_00bb:  stloc.3
-    IL_00bc:  ldloc.2
-    IL_00bd:  ldloc.3
-    IL_00be:  ldnull
-    IL_00bf:  ldc.i4.4
-    IL_00c0:  call       class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.EccKey::New(uint8[],
+    IL_0094:  ldloc.1
+    IL_0095:  ldstr      "x"
+    IL_009a:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_009f:  castclass  [mscorlib]System.String
+    IL_00a4:  call       uint8[] Jose.Base64Url::Decode(string)
+    IL_00a9:  stloc.2
+    IL_00aa:  ldloc.1
+    IL_00ab:  ldstr      "y"
+    IL_00b0:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_00b5:  castclass  [mscorlib]System.String
+    IL_00ba:  call       uint8[] Jose.Base64Url::Decode(string)
+    IL_00bf:  stloc.3
+    IL_00c0:  ldloc.2
+    IL_00c1:  ldloc.3
+    IL_00c2:  ldnull
+    IL_00c3:  ldc.i4.4
+    IL_00c4:  call       class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.EccKey::New(uint8[],
                                                                                                                   uint8[],
                                                                                                                   uint8[],
                                                                                                                   valuetype [System.Core]System.Security.Cryptography.CngKeyUsages)
-    IL_00c5:  stloc.s    V_4
-    IL_00c7:  ldarg.0
-    IL_00c8:  ldarg.s    header
-    IL_00ca:  ldarg.3
-    IL_00cb:  ldloc.s    V_4
-    IL_00cd:  ldloc.0
-    IL_00ce:  call       instance uint8[] Jose.EcdhKeyManagement::DeriveKey(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_00c9:  stloc.s    V_4
+    IL_00cb:  ldarg.0
+    IL_00cc:  ldarg.s    header
+    IL_00ce:  ldarg.3
+    IL_00cf:  ldloc.s    V_4
+    IL_00d1:  ldloc.0
+    IL_00d2:  call       instance uint8[] Jose.EcdhKeyManagement::DeriveKey(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                                             int32,
                                                                             class [System.Core]System.Security.Cryptography.CngKey,
                                                                             class [System.Core]System.Security.Cryptography.CngKey)
-    IL_00d3:  ret
+    IL_00d7:  ret
   } // end of method EcdhKeyManagement::Unwrap
 
   .method private hidebysig instance uint8[] 
@@ -6428,7 +6448,7 @@
                                          object key,
                                          class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       193 (0xc1)
+    // Code size       194 (0xc2)
     .maxstack  5
     .locals init (string V_0,
              uint8[] V_1,
@@ -6441,93 +6461,94 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "Pbse2HmacShaKeyManagementWithAesKeyWrap management"
     + " algorithm expectes key to be string."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<string>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<string>(object,
                                                        string,
                                                        object[])
-    IL_0010:  stloc.0
-    IL_0011:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0016:  ldloc.0
-    IL_0017:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_001c:  stloc.1
-    IL_001d:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0022:  ldarg.3
-    IL_0023:  ldstr      "alg"
-    IL_0028:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_002d:  castclass  [mscorlib]System.String
-    IL_0032:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_0037:  stloc.2
-    IL_0038:  ldc.i4     0x2000
-    IL_003d:  stloc.3
-    IL_003e:  ldc.i4.s   96
-    IL_0040:  call       uint8[] Jose.Arrays::Random(int32)
-    IL_0045:  stloc.s    V_4
-    IL_0047:  ldarg.3
-    IL_0048:  ldstr      "p2c"
-    IL_004d:  ldloc.3
-    IL_004e:  box        [mscorlib]System.Int32
-    IL_0053:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_0011:  stloc.0
+    IL_0012:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0017:  ldloc.0
+    IL_0018:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_001d:  stloc.1
+    IL_001e:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0023:  ldarg.3
+    IL_0024:  ldstr      "alg"
+    IL_0029:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_002e:  castclass  [mscorlib]System.String
+    IL_0033:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_0038:  stloc.2
+    IL_0039:  ldc.i4     0x2000
+    IL_003e:  stloc.3
+    IL_003f:  ldc.i4.s   96
+    IL_0041:  call       uint8[] Jose.Arrays::Random(int32)
+    IL_0046:  stloc.s    V_4
+    IL_0048:  ldarg.3
+    IL_0049:  ldstr      "p2c"
+    IL_004e:  ldloc.3
+    IL_004f:  box        [mscorlib]System.Int32
+    IL_0054:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_0058:  ldarg.3
-    IL_0059:  ldstr      "p2s"
-    IL_005e:  ldloc.s    V_4
-    IL_0060:  call       string Jose.Base64Url::Encode(uint8[])
-    IL_0065:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
+    IL_0059:  ldarg.3
+    IL_005a:  ldstr      "p2s"
+    IL_005f:  ldloc.s    V_4
+    IL_0061:  call       string Jose.Base64Url::Encode(uint8[])
+    IL_0066:  callvirt   instance void class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::set_Item(!0,
                                                                                                                          !1)
-    IL_006a:  ldc.i4.3
-    IL_006b:  newarr     uint8[]
-    IL_0070:  dup
-    IL_0071:  ldc.i4.0
-    IL_0072:  ldloc.2
-    IL_0073:  stelem.ref
-    IL_0074:  dup
-    IL_0075:  ldc.i4.1
-    IL_0076:  ldsfld     uint8[] Jose.Arrays::Zero
-    IL_007b:  stelem.ref
-    IL_007c:  dup
-    IL_007d:  ldc.i4.2
-    IL_007e:  ldloc.s    V_4
-    IL_0080:  stelem.ref
-    IL_0081:  call       uint8[] Jose.Arrays::Concat(uint8[][])
-    IL_0086:  stloc.s    V_5
-    IL_0088:  ldarg.0
-    IL_0089:  call       instance class [mscorlib]System.Security.Cryptography.HMAC Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::get_PRF()
-    IL_008e:  stloc.s    V_7
+    IL_006b:  ldc.i4.3
+    IL_006c:  newarr     uint8[]
+    IL_0071:  dup
+    IL_0072:  ldc.i4.0
+    IL_0073:  ldloc.2
+    IL_0074:  stelem.ref
+    IL_0075:  dup
+    IL_0076:  ldc.i4.1
+    IL_0077:  ldsfld     uint8[] Jose.Arrays::Zero
+    IL_007c:  stelem.ref
+    IL_007d:  dup
+    IL_007e:  ldc.i4.2
+    IL_007f:  ldloc.s    V_4
+    IL_0081:  stelem.ref
+    IL_0082:  call       uint8[] Jose.Arrays::Concat(uint8[][])
+    IL_0087:  stloc.s    V_5
+    IL_0089:  ldarg.0
+    IL_008a:  call       instance class [mscorlib]System.Security.Cryptography.HMAC Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::get_PRF()
+    IL_008f:  stloc.s    V_7
     .try
     {
-      IL_0090:  ldloc.1
-      IL_0091:  ldloc.s    V_5
-      IL_0093:  ldloc.3
-      IL_0094:  ldarg.0
-      IL_0095:  ldfld      int32 Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::keyLengthBits
-      IL_009a:  ldloc.s    V_7
-      IL_009c:  call       uint8[] Jose.PBKDF2::DeriveKey(uint8[],
+      IL_0091:  ldloc.1
+      IL_0092:  ldloc.s    V_5
+      IL_0094:  ldloc.3
+      IL_0095:  ldarg.0
+      IL_0096:  ldfld      int32 Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::keyLengthBits
+      IL_009b:  ldloc.s    V_7
+      IL_009d:  call       uint8[] Jose.PBKDF2::DeriveKey(uint8[],
                                                           uint8[],
                                                           int32,
                                                           int32,
                                                           class [mscorlib]System.Security.Cryptography.HMAC)
-      IL_00a1:  stloc.s    V_6
-      IL_00a3:  leave.s    IL_00b1
+      IL_00a2:  stloc.s    V_6
+      IL_00a4:  leave.s    IL_00b2
 
     }  // end .try
     finally
     {
-      IL_00a5:  ldloc.s    V_7
-      IL_00a7:  brfalse.s  IL_00b0
+      IL_00a6:  ldloc.s    V_7
+      IL_00a8:  brfalse.s  IL_00b1
 
-      IL_00a9:  ldloc.s    V_7
-      IL_00ab:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-      IL_00b0:  endfinally
+      IL_00aa:  ldloc.s    V_7
+      IL_00ac:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_00b1:  endfinally
     }  // end handler
-    IL_00b1:  ldarg.0
-    IL_00b2:  ldfld      class Jose.AesKeyWrapManagement Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::aesKW
-    IL_00b7:  ldarg.1
-    IL_00b8:  ldloc.s    V_6
-    IL_00ba:  ldarg.3
-    IL_00bb:  callvirt   instance uint8[][] Jose.AesKeyWrapManagement::WrapNewKey(int32,
+    IL_00b2:  ldarg.0
+    IL_00b3:  ldfld      class Jose.AesKeyWrapManagement Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::aesKW
+    IL_00b8:  ldarg.1
+    IL_00b9:  ldloc.s    V_6
+    IL_00bb:  ldarg.3
+    IL_00bc:  callvirt   instance uint8[][] Jose.AesKeyWrapManagement::WrapNewKey(int32,
                                                                                   object,
                                                                                   class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>)
-    IL_00c0:  ret
+    IL_00c1:  ret
   } // end of method Pbse2HmacShaKeyManagementWithAesKeyWrap::WrapNewKey
 
   .method public hidebysig newslot virtual final 
@@ -6536,7 +6557,7 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       250 (0xfa)
+    // Code size       253 (0xfd)
     .maxstack  5
     .locals init (string V_0,
              uint8[] V_1,
@@ -6549,117 +6570,120 @@
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "Pbse2HmacShaKeyManagementWithAesKeyWrap management"
     + " algorithm expectes key to be string."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<string>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<string>(object,
                                                        string,
                                                        object[])
-    IL_0010:  stloc.0
-    IL_0011:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0016:  ldloc.0
-    IL_0017:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_001c:  stloc.1
-    IL_001d:  ldarg.s    header
-    IL_001f:  ldc.i4.1
-    IL_0020:  newarr     [mscorlib]System.String
-    IL_0025:  dup
-    IL_0026:  ldc.i4.0
-    IL_0027:  ldstr      "p2c"
-    IL_002c:  stelem.ref
-    IL_002d:  ldstr      "Pbse2HmacShaKeyManagementWithAesKeyWrap algorithm "
+    IL_0011:  stloc.0
+    IL_0012:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0017:  ldloc.0
+    IL_0018:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_001d:  stloc.1
+    IL_001e:  ldarg.s    header
+    IL_0020:  ldc.i4.1
+    IL_0021:  newarr     [mscorlib]System.String
+    IL_0026:  dup
+    IL_0027:  ldc.i4.0
+    IL_0028:  ldstr      "p2c"
+    IL_002d:  stelem.ref
+    IL_002e:  ldstr      "Pbse2HmacShaKeyManagementWithAesKeyWrap algorithm "
     + "expects 'p2c' param in JWT header, but was not found"
-    IL_0032:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_0037:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_0033:  ldc.i4.0
+    IL_0034:  newarr     [mscorlib]System.Object
+    IL_0039:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_003c:  ldarg.s    header
-    IL_003e:  ldc.i4.1
-    IL_003f:  newarr     [mscorlib]System.String
-    IL_0044:  dup
-    IL_0045:  ldc.i4.0
-    IL_0046:  ldstr      "p2s"
-    IL_004b:  stelem.ref
-    IL_004c:  ldstr      "Pbse2HmacShaKeyManagementWithAesKeyWrap algorithm "
+    IL_003e:  ldarg.s    header
+    IL_0040:  ldc.i4.1
+    IL_0041:  newarr     [mscorlib]System.String
+    IL_0046:  dup
+    IL_0047:  ldc.i4.0
+    IL_0048:  ldstr      "p2s"
+    IL_004d:  stelem.ref
+    IL_004e:  ldstr      "Pbse2HmacShaKeyManagementWithAesKeyWrap algorithm "
     + "expects 'p2s' param in JWT header, but was not found"
-    IL_0051:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_0056:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
+    IL_0053:  ldc.i4.0
+    IL_0054:  newarr     [mscorlib]System.Object
+    IL_0059:  call       void Jose.Ensure::Contains(class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>,
                                                     string[],
                                                     string,
                                                     object[])
-    IL_005b:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
-    IL_0060:  ldarg.s    header
-    IL_0062:  ldstr      "alg"
-    IL_0067:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_006c:  castclass  [mscorlib]System.String
-    IL_0071:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
-    IL_0076:  stloc.2
-    IL_0077:  ldarg.s    header
-    IL_0079:  ldstr      "p2c"
-    IL_007e:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_0083:  call       int32 [mscorlib]System.Convert::ToInt32(object)
-    IL_0088:  stloc.3
-    IL_0089:  ldarg.s    header
-    IL_008b:  ldstr      "p2s"
-    IL_0090:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
-    IL_0095:  castclass  [mscorlib]System.String
-    IL_009a:  call       uint8[] Jose.Base64Url::Decode(string)
-    IL_009f:  stloc.s    V_4
-    IL_00a1:  ldc.i4.3
-    IL_00a2:  newarr     uint8[]
-    IL_00a7:  dup
-    IL_00a8:  ldc.i4.0
-    IL_00a9:  ldloc.2
-    IL_00aa:  stelem.ref
-    IL_00ab:  dup
-    IL_00ac:  ldc.i4.1
-    IL_00ad:  ldsfld     uint8[] Jose.Arrays::Zero
-    IL_00b2:  stelem.ref
-    IL_00b3:  dup
-    IL_00b4:  ldc.i4.2
-    IL_00b5:  ldloc.s    V_4
-    IL_00b7:  stelem.ref
-    IL_00b8:  call       uint8[] Jose.Arrays::Concat(uint8[][])
-    IL_00bd:  stloc.s    V_5
-    IL_00bf:  ldarg.0
-    IL_00c0:  call       instance class [mscorlib]System.Security.Cryptography.HMAC Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::get_PRF()
-    IL_00c5:  stloc.s    V_7
+    IL_005e:  call       class [mscorlib]System.Text.Encoding [mscorlib]System.Text.Encoding::get_UTF8()
+    IL_0063:  ldarg.s    header
+    IL_0065:  ldstr      "alg"
+    IL_006a:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_006f:  castclass  [mscorlib]System.String
+    IL_0074:  callvirt   instance uint8[] [mscorlib]System.Text.Encoding::GetBytes(string)
+    IL_0079:  stloc.2
+    IL_007a:  ldarg.s    header
+    IL_007c:  ldstr      "p2c"
+    IL_0081:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_0086:  call       int32 [mscorlib]System.Convert::ToInt32(object)
+    IL_008b:  stloc.3
+    IL_008c:  ldarg.s    header
+    IL_008e:  ldstr      "p2s"
+    IL_0093:  callvirt   instance !1 class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>::get_Item(!0)
+    IL_0098:  castclass  [mscorlib]System.String
+    IL_009d:  call       uint8[] Jose.Base64Url::Decode(string)
+    IL_00a2:  stloc.s    V_4
+    IL_00a4:  ldc.i4.3
+    IL_00a5:  newarr     uint8[]
+    IL_00aa:  dup
+    IL_00ab:  ldc.i4.0
+    IL_00ac:  ldloc.2
+    IL_00ad:  stelem.ref
+    IL_00ae:  dup
+    IL_00af:  ldc.i4.1
+    IL_00b0:  ldsfld     uint8[] Jose.Arrays::Zero
+    IL_00b5:  stelem.ref
+    IL_00b6:  dup
+    IL_00b7:  ldc.i4.2
+    IL_00b8:  ldloc.s    V_4
+    IL_00ba:  stelem.ref
+    IL_00bb:  call       uint8[] Jose.Arrays::Concat(uint8[][])
+    IL_00c0:  stloc.s    V_5
+    IL_00c2:  ldarg.0
+    IL_00c3:  call       instance class [mscorlib]System.Security.Cryptography.HMAC Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::get_PRF()
+    IL_00c8:  stloc.s    V_7
     .try
     {
-      IL_00c7:  ldloc.1
-      IL_00c8:  ldloc.s    V_5
-      IL_00ca:  ldloc.3
-      IL_00cb:  ldarg.0
-      IL_00cc:  ldfld      int32 Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::keyLengthBits
-      IL_00d1:  ldloc.s    V_7
-      IL_00d3:  call       uint8[] Jose.PBKDF2::DeriveKey(uint8[],
+      IL_00ca:  ldloc.1
+      IL_00cb:  ldloc.s    V_5
+      IL_00cd:  ldloc.3
+      IL_00ce:  ldarg.0
+      IL_00cf:  ldfld      int32 Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::keyLengthBits
+      IL_00d4:  ldloc.s    V_7
+      IL_00d6:  call       uint8[] Jose.PBKDF2::DeriveKey(uint8[],
                                                           uint8[],
                                                           int32,
                                                           int32,
                                                           class [mscorlib]System.Security.Cryptography.HMAC)
-      IL_00d8:  stloc.s    V_6
-      IL_00da:  leave.s    IL_00e8
+      IL_00db:  stloc.s    V_6
+      IL_00dd:  leave.s    IL_00eb
 
     }  // end .try
     finally
     {
-      IL_00dc:  ldloc.s    V_7
-      IL_00de:  brfalse.s  IL_00e7
+      IL_00df:  ldloc.s    V_7
+      IL_00e1:  brfalse.s  IL_00ea
 
-      IL_00e0:  ldloc.s    V_7
-      IL_00e2:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-      IL_00e7:  endfinally
+      IL_00e3:  ldloc.s    V_7
+      IL_00e5:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_00ea:  endfinally
     }  // end handler
-    IL_00e8:  ldarg.0
-    IL_00e9:  ldfld      class Jose.AesKeyWrapManagement Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::aesKW
-    IL_00ee:  ldarg.1
-    IL_00ef:  ldloc.s    V_6
-    IL_00f1:  ldarg.3
-    IL_00f2:  ldarg.s    header
-    IL_00f4:  callvirt   instance uint8[] Jose.AesKeyWrapManagement::Unwrap(uint8[],
+    IL_00eb:  ldarg.0
+    IL_00ec:  ldfld      class Jose.AesKeyWrapManagement Jose.Pbse2HmacShaKeyManagementWithAesKeyWrap::aesKW
+    IL_00f1:  ldarg.1
+    IL_00f2:  ldloc.s    V_6
+    IL_00f4:  ldarg.3
+    IL_00f5:  ldarg.s    header
+    IL_00f7:  callvirt   instance uint8[] Jose.AesKeyWrapManagement::Unwrap(uint8[],
                                                                             object,
                                                                             int32,
                                                                             class [mscorlib]System.Collections.Generic.IDictionary`2<string,object>)
-    IL_00f9:  ret
+    IL_00fc:  ret
   } // end of method Pbse2HmacShaKeyManagementWithAesKeyWrap::Unwrap
 
   .method private hidebysig specialname instance class [mscorlib]System.Security.Cryptography.HMAC 
@@ -6731,110 +6755,38 @@
                                          object key,
                                          class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       185 (0xb9)
+    // Code size       52 (0x34)
     .maxstack  6
     .locals init (uint8[] V_0,
-             class [System.Core]System.Security.Cryptography.RSACng V_1,
-             class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding V_2,
-             class [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider V_3,
-             class [mscorlib]System.Security.Cryptography.RSA V_4,
-             class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding V_5)
+             class [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider V_1)
     IL_0000:  ldarg.1
     IL_0001:  call       uint8[] Jose.Arrays::Random(int32)
     IL_0006:  stloc.0
     IL_0007:  ldarg.2
-    IL_0008:  isinst     [System.Core]System.Security.Cryptography.CngKey
-    IL_000d:  brfalse.s  IL_0046
-
-    IL_000f:  ldarg.2
-    IL_0010:  castclass  [System.Core]System.Security.Cryptography.CngKey
-    IL_0015:  newobj     instance void [System.Core]System.Security.Cryptography.RSACng::.ctor(class [System.Core]System.Security.Cryptography.CngKey)
-    IL_001a:  stloc.1
-    IL_001b:  ldarg.0
-    IL_001c:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
-    IL_0021:  brtrue.s   IL_002a
-
-    IL_0023:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_Pkcs1()
-    IL_0028:  br.s       IL_002f
-
-    IL_002a:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_OaepSHA1()
-    IL_002f:  stloc.2
-    IL_0030:  ldc.i4.2
-    IL_0031:  newarr     uint8[]
-    IL_0036:  dup
-    IL_0037:  ldc.i4.0
-    IL_0038:  ldloc.0
-    IL_0039:  stelem.ref
-    IL_003a:  dup
-    IL_003b:  ldc.i4.1
-    IL_003c:  ldloc.1
-    IL_003d:  ldloc.0
-    IL_003e:  ldloc.2
-    IL_003f:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::Encrypt(uint8[],
-                                                                                              class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding)
-    IL_0044:  stelem.ref
-    IL_0045:  ret
-
-    IL_0046:  ldarg.2
-    IL_0047:  isinst     [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_004c:  brfalse.s  IL_0070
-
-    IL_004e:  ldarg.2
-    IL_004f:  castclass  [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_0054:  stloc.3
-    IL_0055:  ldc.i4.2
-    IL_0056:  newarr     uint8[]
-    IL_005b:  dup
-    IL_005c:  ldc.i4.0
-    IL_005d:  ldloc.0
-    IL_005e:  stelem.ref
-    IL_005f:  dup
-    IL_0060:  ldc.i4.1
-    IL_0061:  ldloc.3
-    IL_0062:  ldloc.0
-    IL_0063:  ldarg.0
-    IL_0064:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
-    IL_0069:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider::Encrypt(uint8[],
+    IL_0008:  ldstr      "RsaKeyManagement alg expects key to be of RSACrypt"
+    + "oServiceProvider type."
+    IL_000d:  ldc.i4.0
+    IL_000e:  newarr     [mscorlib]System.Object
+    IL_0013:  call       !!0 Jose.Ensure::Type<class [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider>(object,
+                                                                                                                      string,
+                                                                                                                      object[])
+    IL_0018:  stloc.1
+    IL_0019:  ldc.i4.2
+    IL_001a:  newarr     uint8[]
+    IL_001f:  dup
+    IL_0020:  ldc.i4.0
+    IL_0021:  ldloc.0
+    IL_0022:  stelem.ref
+    IL_0023:  dup
+    IL_0024:  ldc.i4.1
+    IL_0025:  ldloc.1
+    IL_0026:  ldloc.0
+    IL_0027:  ldarg.0
+    IL_0028:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
+    IL_002d:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider::Encrypt(uint8[],
                                                                                                                    bool)
-    IL_006e:  stelem.ref
-    IL_006f:  ret
-
-    IL_0070:  ldarg.2
-    IL_0071:  isinst     [mscorlib]System.Security.Cryptography.RSA
-    IL_0076:  brfalse.s  IL_00ae
-
-    IL_0078:  ldarg.2
-    IL_0079:  castclass  [mscorlib]System.Security.Cryptography.RSA
-    IL_007e:  stloc.s    V_4
-    IL_0080:  ldarg.0
-    IL_0081:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
-    IL_0086:  brtrue.s   IL_008f
-
-    IL_0088:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_Pkcs1()
-    IL_008d:  br.s       IL_0094
-
-    IL_008f:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_OaepSHA1()
-    IL_0094:  stloc.s    V_5
-    IL_0096:  ldc.i4.2
-    IL_0097:  newarr     uint8[]
-    IL_009c:  dup
-    IL_009d:  ldc.i4.0
-    IL_009e:  ldloc.0
-    IL_009f:  stelem.ref
-    IL_00a0:  dup
-    IL_00a1:  ldc.i4.1
-    IL_00a2:  ldloc.s    V_4
-    IL_00a4:  ldloc.0
-    IL_00a5:  ldloc.s    V_5
-    IL_00a7:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::Encrypt(uint8[],
-                                                                                              class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding)
-    IL_00ac:  stelem.ref
-    IL_00ad:  ret
-
-    IL_00ae:  ldstr      "RsaKeyManagement algorithm expects key to be of ei"
-    + "ther CngKey, RSACryptoServiceProvider or RSA types."
-    IL_00b3:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_00b8:  throw
+    IL_0032:  stelem.ref
+    IL_0033:  ret
   } // end of method RsaKeyManagement::WrapNewKey
 
   .method public hidebysig newslot virtual final 
@@ -6843,70 +6795,22 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       129 (0x81)
-    .maxstack  3
-    .locals init (class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding V_0,
-             class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding V_1)
+    // Code size       30 (0x1e)
+    .maxstack  8
     IL_0000:  ldarg.2
-    IL_0001:  isinst     [System.Core]System.Security.Cryptography.CngKey
-    IL_0006:  brfalse.s  IL_0030
-
-    IL_0008:  ldarg.2
-    IL_0009:  castclass  [System.Core]System.Security.Cryptography.CngKey
-    IL_000e:  newobj     instance void [System.Core]System.Security.Cryptography.RSACng::.ctor(class [System.Core]System.Security.Cryptography.CngKey)
-    IL_0013:  ldarg.0
-    IL_0014:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
-    IL_0019:  brtrue.s   IL_0022
-
-    IL_001b:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_Pkcs1()
-    IL_0020:  br.s       IL_0027
-
-    IL_0022:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_OaepSHA1()
-    IL_0027:  stloc.0
-    IL_0028:  ldarg.1
-    IL_0029:  ldloc.0
-    IL_002a:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::Decrypt(uint8[],
-                                                                                              class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding)
-    IL_002f:  ret
-
-    IL_0030:  ldarg.2
-    IL_0031:  isinst     [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_0036:  brfalse.s  IL_004b
-
-    IL_0038:  ldarg.2
-    IL_0039:  castclass  [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_003e:  ldarg.1
-    IL_003f:  ldarg.0
-    IL_0040:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
-    IL_0045:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider::Decrypt(uint8[],
+    IL_0001:  ldstr      "RsaKeyManagement alg expects key to be of RSACrypt"
+    + "oServiceProvider type."
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<class [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider>(object,
+                                                                                                                      string,
+                                                                                                                      object[])
+    IL_0011:  ldarg.1
+    IL_0012:  ldarg.0
+    IL_0013:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
+    IL_0018:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider::Decrypt(uint8[],
                                                                                                                    bool)
-    IL_004a:  ret
-
-    IL_004b:  ldarg.2
-    IL_004c:  isinst     [mscorlib]System.Security.Cryptography.RSA
-    IL_0051:  brfalse.s  IL_0076
-
-    IL_0053:  ldarg.2
-    IL_0054:  castclass  [mscorlib]System.Security.Cryptography.RSA
-    IL_0059:  ldarg.0
-    IL_005a:  ldfld      bool Jose.RsaKeyManagement::useRsaOaepPadding
-    IL_005f:  brtrue.s   IL_0068
-
-    IL_0061:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_Pkcs1()
-    IL_0066:  br.s       IL_006d
-
-    IL_0068:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_OaepSHA1()
-    IL_006d:  stloc.1
-    IL_006e:  ldarg.1
-    IL_006f:  ldloc.1
-    IL_0070:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::Decrypt(uint8[],
-                                                                                              class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding)
-    IL_0075:  ret
-
-    IL_0076:  ldstr      "RsaKeyManagement algorithm expects key to be of ei"
-    + "ther CngKey, RSACryptoServiceProvider or RSA types."
-    IL_007b:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_0080:  throw
+    IL_001d:  ret
   } // end of method RsaKeyManagement::Unwrap
 
 } // end of class Jose.RsaKeyManagement
@@ -6920,93 +6824,75 @@
                                          object key,
                                          class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       152 (0x98)
+    // Code size       122 (0x7a)
     .maxstack  6
     .locals init (uint8[] V_0,
              class [System.Core]System.Security.Cryptography.CngKey V_1,
-             class [System.Core]System.Security.Cryptography.CngKey V_2,
-             class [mscorlib]System.Security.Cryptography.RSA V_3)
+             class [System.Core]System.Security.Cryptography.CngKey V_2)
     IL_0000:  ldarg.1
     IL_0001:  call       uint8[] Jose.Arrays::Random(int32)
     IL_0006:  stloc.0
     IL_0007:  ldarg.2
     IL_0008:  isinst     [System.Core]System.Security.Cryptography.CngKey
-    IL_000d:  brfalse.s  IL_0030
+    IL_000d:  brfalse.s  IL_003b
 
     IL_000f:  ldarg.2
-    IL_0010:  castclass  [System.Core]System.Security.Cryptography.CngKey
-    IL_0015:  stloc.1
-    IL_0016:  ldc.i4.2
-    IL_0017:  newarr     uint8[]
-    IL_001c:  dup
-    IL_001d:  ldc.i4.0
-    IL_001e:  ldloc.0
-    IL_001f:  stelem.ref
-    IL_0020:  dup
-    IL_0021:  ldc.i4.1
-    IL_0022:  ldloc.0
-    IL_0023:  ldloc.1
-    IL_0024:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
-    IL_0029:  call       uint8[] Jose.RsaOaep::Encrypt(uint8[],
+    IL_0010:  ldstr      "RsaOaep256KeyManagement alg expects key to be of C"
+    + "ngKey type."
+    IL_0015:  ldc.i4.0
+    IL_0016:  newarr     [mscorlib]System.Object
+    IL_001b:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
+                                                                                                       string,
+                                                                                                       object[])
+    IL_0020:  stloc.1
+    IL_0021:  ldc.i4.2
+    IL_0022:  newarr     uint8[]
+    IL_0027:  dup
+    IL_0028:  ldc.i4.0
+    IL_0029:  ldloc.0
+    IL_002a:  stelem.ref
+    IL_002b:  dup
+    IL_002c:  ldc.i4.1
+    IL_002d:  ldloc.0
+    IL_002e:  ldloc.1
+    IL_002f:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
+    IL_0034:  call       uint8[] Jose.RsaOaep::Encrypt(uint8[],
                                                        class [System.Core]System.Security.Cryptography.CngKey,
                                                        class [System.Core]System.Security.Cryptography.CngAlgorithm)
-    IL_002e:  stelem.ref
-    IL_002f:  ret
+    IL_0039:  stelem.ref
+    IL_003a:  ret
 
-    IL_0030:  ldarg.2
-    IL_0031:  isinst     [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_0036:  brfalse.s  IL_0064
+    IL_003b:  ldarg.2
+    IL_003c:  isinst     [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
+    IL_0041:  brfalse.s  IL_006f
 
-    IL_0038:  ldarg.2
-    IL_0039:  castclass  [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_003e:  ldc.i4.0
-    IL_003f:  callvirt   instance valuetype [mscorlib]System.Security.Cryptography.RSAParameters [mscorlib]System.Security.Cryptography.RSA::ExportParameters(bool)
-    IL_0044:  call       class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.RsaKey::New(valuetype [mscorlib]System.Security.Cryptography.RSAParameters)
-    IL_0049:  stloc.2
-    IL_004a:  ldc.i4.2
-    IL_004b:  newarr     uint8[]
-    IL_0050:  dup
-    IL_0051:  ldc.i4.0
-    IL_0052:  ldloc.0
-    IL_0053:  stelem.ref
-    IL_0054:  dup
-    IL_0055:  ldc.i4.1
-    IL_0056:  ldloc.0
-    IL_0057:  ldloc.2
-    IL_0058:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
-    IL_005d:  call       uint8[] Jose.RsaOaep::Encrypt(uint8[],
+    IL_0043:  ldarg.2
+    IL_0044:  castclass  [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
+    IL_0049:  ldc.i4.0
+    IL_004a:  callvirt   instance valuetype [mscorlib]System.Security.Cryptography.RSAParameters [mscorlib]System.Security.Cryptography.RSA::ExportParameters(bool)
+    IL_004f:  call       class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.RsaKey::New(valuetype [mscorlib]System.Security.Cryptography.RSAParameters)
+    IL_0054:  stloc.2
+    IL_0055:  ldc.i4.2
+    IL_0056:  newarr     uint8[]
+    IL_005b:  dup
+    IL_005c:  ldc.i4.0
+    IL_005d:  ldloc.0
+    IL_005e:  stelem.ref
+    IL_005f:  dup
+    IL_0060:  ldc.i4.1
+    IL_0061:  ldloc.0
+    IL_0062:  ldloc.2
+    IL_0063:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
+    IL_0068:  call       uint8[] Jose.RsaOaep::Encrypt(uint8[],
                                                        class [System.Core]System.Security.Cryptography.CngKey,
                                                        class [System.Core]System.Security.Cryptography.CngAlgorithm)
-    IL_0062:  stelem.ref
-    IL_0063:  ret
+    IL_006d:  stelem.ref
+    IL_006e:  ret
 
-    IL_0064:  ldarg.2
-    IL_0065:  isinst     [mscorlib]System.Security.Cryptography.RSA
-    IL_006a:  brfalse.s  IL_008d
-
-    IL_006c:  ldarg.2
-    IL_006d:  castclass  [mscorlib]System.Security.Cryptography.RSA
-    IL_0072:  stloc.3
-    IL_0073:  ldc.i4.2
-    IL_0074:  newarr     uint8[]
-    IL_0079:  dup
-    IL_007a:  ldc.i4.0
-    IL_007b:  ldloc.0
-    IL_007c:  stelem.ref
-    IL_007d:  dup
-    IL_007e:  ldc.i4.1
-    IL_007f:  ldloc.3
-    IL_0080:  ldloc.0
-    IL_0081:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_OaepSHA256()
-    IL_0086:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::Encrypt(uint8[],
-                                                                                              class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding)
-    IL_008b:  stelem.ref
-    IL_008c:  ret
-
-    IL_008d:  ldstr      "RsaKeyManagement algorithm expects key to be of ei"
-    + "ther CngKey or RSA types."
-    IL_0092:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_0097:  throw
+    IL_006f:  ldstr      "RsaKeyManagement algorithm expects key to be of Cn"
+    + "gKey type."
+    IL_0074:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
+    IL_0079:  throw
   } // end of method RsaOaep256KeyManagement::WrapNewKey
 
   .method public hidebysig newslot virtual final 
@@ -7015,34 +6901,34 @@
                                    int32 cekSizeBits,
                                    class [mscorlib]System.Collections.Generic.IDictionary`2<string,object> header) cil managed
   {
-    // Code size       104 (0x68)
+    // Code size       78 (0x4e)
     .maxstack  3
     .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
              class [System.Core]System.Security.Cryptography.CngKey V_1)
     IL_0000:  ldarg.2
-    IL_0001:  isinst     [System.Core]System.Security.Cryptography.CngKey
-    IL_0006:  brfalse.s  IL_001c
+    IL_0001:  isinst     [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
+    IL_0006:  brfalse.s  IL_0027
 
     IL_0008:  ldarg.2
-    IL_0009:  castclass  [System.Core]System.Security.Cryptography.CngKey
-    IL_000e:  stloc.0
-    IL_000f:  ldarg.1
-    IL_0010:  ldloc.0
-    IL_0011:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
-    IL_0016:  call       uint8[] Jose.RsaOaep::Decrypt(uint8[],
+    IL_0009:  castclass  [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
+    IL_000e:  ldc.i4.1
+    IL_000f:  callvirt   instance valuetype [mscorlib]System.Security.Cryptography.RSAParameters [mscorlib]System.Security.Cryptography.RSA::ExportParameters(bool)
+    IL_0014:  call       class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.RsaKey::New(valuetype [mscorlib]System.Security.Cryptography.RSAParameters)
+    IL_0019:  stloc.0
+    IL_001a:  ldarg.1
+    IL_001b:  ldloc.0
+    IL_001c:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
+    IL_0021:  call       uint8[] Jose.RsaOaep::Decrypt(uint8[],
                                                        class [System.Core]System.Security.Cryptography.CngKey,
                                                        class [System.Core]System.Security.Cryptography.CngAlgorithm)
-    IL_001b:  ret
+    IL_0026:  ret
 
-    IL_001c:  ldarg.2
-    IL_001d:  isinst     [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_0022:  brfalse.s  IL_0043
+    IL_0027:  ldarg.2
+    IL_0028:  isinst     [System.Core]System.Security.Cryptography.CngKey
+    IL_002d:  brfalse.s  IL_0043
 
-    IL_0024:  ldarg.2
-    IL_0025:  castclass  [mscorlib]System.Security.Cryptography.RSACryptoServiceProvider
-    IL_002a:  ldc.i4.1
-    IL_002b:  callvirt   instance valuetype [mscorlib]System.Security.Cryptography.RSAParameters [mscorlib]System.Security.Cryptography.RSA::ExportParameters(bool)
-    IL_0030:  call       class [System.Core]System.Security.Cryptography.CngKey Security.Cryptography.RsaKey::New(valuetype [mscorlib]System.Security.Cryptography.RSAParameters)
+    IL_002f:  ldarg.2
+    IL_0030:  castclass  [System.Core]System.Security.Cryptography.CngKey
     IL_0035:  stloc.1
     IL_0036:  ldarg.1
     IL_0037:  ldloc.1
@@ -7052,22 +6938,10 @@
                                                        class [System.Core]System.Security.Cryptography.CngAlgorithm)
     IL_0042:  ret
 
-    IL_0043:  ldarg.2
-    IL_0044:  isinst     [mscorlib]System.Security.Cryptography.RSA
-    IL_0049:  brfalse.s  IL_005d
-
-    IL_004b:  ldarg.2
-    IL_004c:  castclass  [mscorlib]System.Security.Cryptography.RSA
-    IL_0051:  ldarg.1
-    IL_0052:  call       class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding [mscorlib]System.Security.Cryptography.RSAEncryptionPadding::get_OaepSHA256()
-    IL_0057:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::Decrypt(uint8[],
-                                                                                              class [mscorlib]System.Security.Cryptography.RSAEncryptionPadding)
-    IL_005c:  ret
-
-    IL_005d:  ldstr      "RsaKeyManagement algorithm expects key to be of ei"
-    + "ther CngKey or RSA types."
-    IL_0062:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_0067:  throw
+    IL_0043:  ldstr      "RsaKeyManagement algorithm expects key to be of Cn"
+    + "gKey type."
+    IL_0048:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
+    IL_004d:  throw
   } // end of method RsaOaep256KeyManagement::Unwrap
 
   .method public hidebysig specialname rtspecialname 
@@ -7110,7 +6984,7 @@
                                       uint8[] plainText,
                                       uint8[] cek) cil managed
   {
-    // Code size       273 (0x111)
+    // Code size       274 (0x112)
     .maxstack  6
     .locals init (uint8[] V_0,
              uint8[] V_1,
@@ -7142,155 +7016,156 @@
     IL_0024:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_0029:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_002e:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_0029:  ldc.i4.0
+    IL_002a:  newarr     [mscorlib]System.Object
+    IL_002f:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0033:  ldarg.3
-    IL_0034:  call       uint8[] Jose.Arrays::FirstHalf(uint8[])
-    IL_0039:  stloc.0
-    IL_003a:  ldarg.3
-    IL_003b:  call       uint8[] Jose.Arrays::SecondHalf(uint8[])
-    IL_0040:  stloc.1
-    IL_0041:  ldc.i4     0x80
-    IL_0046:  call       uint8[] Jose.Arrays::Random(int32)
-    IL_004b:  stloc.2
+    IL_0034:  ldarg.3
+    IL_0035:  call       uint8[] Jose.Arrays::FirstHalf(uint8[])
+    IL_003a:  stloc.0
+    IL_003b:  ldarg.3
+    IL_003c:  call       uint8[] Jose.Arrays::SecondHalf(uint8[])
+    IL_0041:  stloc.1
+    IL_0042:  ldc.i4     0x80
+    IL_0047:  call       uint8[] Jose.Arrays::Random(int32)
+    IL_004c:  stloc.2
     .try
     {
-      IL_004c:  call       class [mscorlib]System.Security.Cryptography.Aes [mscorlib]System.Security.Cryptography.Aes::Create()
-      IL_0051:  stloc.s    V_5
+      IL_004d:  call       class [mscorlib]System.Security.Cryptography.Aes [mscorlib]System.Security.Cryptography.Aes::Create()
+      IL_0052:  stloc.s    V_5
       .try
       {
-        IL_0053:  ldloc.s    V_5
-        IL_0055:  ldloc.1
-        IL_0056:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_Key(uint8[])
-        IL_005b:  ldloc.s    V_5
-        IL_005d:  ldloc.2
-        IL_005e:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_IV(uint8[])
-        IL_0063:  newobj     instance void [mscorlib]System.IO.MemoryStream::.ctor()
-        IL_0068:  stloc.s    V_6
+        IL_0054:  ldloc.s    V_5
+        IL_0056:  ldloc.1
+        IL_0057:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_Key(uint8[])
+        IL_005c:  ldloc.s    V_5
+        IL_005e:  ldloc.2
+        IL_005f:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_IV(uint8[])
+        IL_0064:  newobj     instance void [mscorlib]System.IO.MemoryStream::.ctor()
+        IL_0069:  stloc.s    V_6
         .try
         {
-          IL_006a:  ldloc.s    V_5
-          IL_006c:  ldloc.s    V_5
-          IL_006e:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_Key()
-          IL_0073:  ldloc.s    V_5
-          IL_0075:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
-          IL_007a:  callvirt   instance class [mscorlib]System.Security.Cryptography.ICryptoTransform [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::CreateEncryptor(uint8[],
+          IL_006b:  ldloc.s    V_5
+          IL_006d:  ldloc.s    V_5
+          IL_006f:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_Key()
+          IL_0074:  ldloc.s    V_5
+          IL_0076:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
+          IL_007b:  callvirt   instance class [mscorlib]System.Security.Cryptography.ICryptoTransform [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::CreateEncryptor(uint8[],
                                                                                                                                                                                  uint8[])
-          IL_007f:  stloc.s    V_7
+          IL_0080:  stloc.s    V_7
           .try
           {
-            IL_0081:  ldloc.s    V_6
-            IL_0083:  ldloc.s    V_7
-            IL_0085:  ldc.i4.1
-            IL_0086:  newobj     instance void [mscorlib]System.Security.Cryptography.CryptoStream::.ctor(class [mscorlib]System.IO.Stream,
+            IL_0082:  ldloc.s    V_6
+            IL_0084:  ldloc.s    V_7
+            IL_0086:  ldc.i4.1
+            IL_0087:  newobj     instance void [mscorlib]System.Security.Cryptography.CryptoStream::.ctor(class [mscorlib]System.IO.Stream,
                                                                                                           class [mscorlib]System.Security.Cryptography.ICryptoTransform,
                                                                                                           valuetype [mscorlib]System.Security.Cryptography.CryptoStreamMode)
-            IL_008b:  stloc.s    V_8
+            IL_008c:  stloc.s    V_8
             .try
             {
-              IL_008d:  ldloc.s    V_8
-              IL_008f:  ldarg.2
-              IL_0090:  ldc.i4.0
-              IL_0091:  ldarg.2
-              IL_0092:  ldlen
-              IL_0093:  conv.i4
-              IL_0094:  callvirt   instance void [mscorlib]System.IO.Stream::Write(uint8[],
+              IL_008e:  ldloc.s    V_8
+              IL_0090:  ldarg.2
+              IL_0091:  ldc.i4.0
+              IL_0092:  ldarg.2
+              IL_0093:  ldlen
+              IL_0094:  conv.i4
+              IL_0095:  callvirt   instance void [mscorlib]System.IO.Stream::Write(uint8[],
                                                                                    int32,
                                                                                    int32)
-              IL_0099:  ldloc.s    V_8
-              IL_009b:  callvirt   instance void [mscorlib]System.Security.Cryptography.CryptoStream::FlushFinalBlock()
-              IL_00a0:  ldloc.s    V_6
-              IL_00a2:  callvirt   instance uint8[] [mscorlib]System.IO.MemoryStream::ToArray()
-              IL_00a7:  stloc.3
-              IL_00a8:  leave.s    IL_00b6
+              IL_009a:  ldloc.s    V_8
+              IL_009c:  callvirt   instance void [mscorlib]System.Security.Cryptography.CryptoStream::FlushFinalBlock()
+              IL_00a1:  ldloc.s    V_6
+              IL_00a3:  callvirt   instance uint8[] [mscorlib]System.IO.MemoryStream::ToArray()
+              IL_00a8:  stloc.3
+              IL_00a9:  leave.s    IL_00b7
 
             }  // end .try
             finally
             {
-              IL_00aa:  ldloc.s    V_8
-              IL_00ac:  brfalse.s  IL_00b5
+              IL_00ab:  ldloc.s    V_8
+              IL_00ad:  brfalse.s  IL_00b6
 
-              IL_00ae:  ldloc.s    V_8
-              IL_00b0:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-              IL_00b5:  endfinally
+              IL_00af:  ldloc.s    V_8
+              IL_00b1:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+              IL_00b6:  endfinally
             }  // end handler
-            IL_00b6:  leave.s    IL_00c4
+            IL_00b7:  leave.s    IL_00c5
 
           }  // end .try
           finally
           {
-            IL_00b8:  ldloc.s    V_7
-            IL_00ba:  brfalse.s  IL_00c3
+            IL_00b9:  ldloc.s    V_7
+            IL_00bb:  brfalse.s  IL_00c4
 
-            IL_00bc:  ldloc.s    V_7
-            IL_00be:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-            IL_00c3:  endfinally
+            IL_00bd:  ldloc.s    V_7
+            IL_00bf:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+            IL_00c4:  endfinally
           }  // end handler
-          IL_00c4:  leave.s    IL_00d2
+          IL_00c5:  leave.s    IL_00d3
 
         }  // end .try
         finally
         {
-          IL_00c6:  ldloc.s    V_6
-          IL_00c8:  brfalse.s  IL_00d1
+          IL_00c7:  ldloc.s    V_6
+          IL_00c9:  brfalse.s  IL_00d2
 
-          IL_00ca:  ldloc.s    V_6
-          IL_00cc:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-          IL_00d1:  endfinally
+          IL_00cb:  ldloc.s    V_6
+          IL_00cd:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+          IL_00d2:  endfinally
         }  // end handler
-        IL_00d2:  leave.s    IL_00e0
+        IL_00d3:  leave.s    IL_00e1
 
       }  // end .try
       finally
       {
-        IL_00d4:  ldloc.s    V_5
-        IL_00d6:  brfalse.s  IL_00df
+        IL_00d5:  ldloc.s    V_5
+        IL_00d7:  brfalse.s  IL_00e0
 
-        IL_00d8:  ldloc.s    V_5
-        IL_00da:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-        IL_00df:  endfinally
+        IL_00d9:  ldloc.s    V_5
+        IL_00db:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+        IL_00e0:  endfinally
       }  // end handler
-      IL_00e0:  leave.s    IL_00f1
+      IL_00e1:  leave.s    IL_00f2
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
     {
-      IL_00e2:  stloc.s    V_9
-      IL_00e4:  ldstr      "Unable to encrypt content."
-      IL_00e9:  ldloc.s    V_9
-      IL_00eb:  newobj     instance void Jose.EncryptionException::.ctor(string,
+      IL_00e3:  stloc.s    V_9
+      IL_00e5:  ldstr      "Unable to encrypt content."
+      IL_00ea:  ldloc.s    V_9
+      IL_00ec:  newobj     instance void Jose.EncryptionException::.ctor(string,
                                                                          class [mscorlib]System.Exception)
-      IL_00f0:  throw
+      IL_00f1:  throw
 
     }  // end handler
-    IL_00f1:  ldarg.0
-    IL_00f2:  ldarg.1
-    IL_00f3:  ldloc.2
-    IL_00f4:  ldloc.3
-    IL_00f5:  ldloc.0
-    IL_00f6:  call       instance uint8[] Jose.AesCbcHmacEncryption::ComputeAuthTag(uint8[],
+    IL_00f2:  ldarg.0
+    IL_00f3:  ldarg.1
+    IL_00f4:  ldloc.2
+    IL_00f5:  ldloc.3
+    IL_00f6:  ldloc.0
+    IL_00f7:  call       instance uint8[] Jose.AesCbcHmacEncryption::ComputeAuthTag(uint8[],
                                                                                     uint8[],
                                                                                     uint8[],
                                                                                     uint8[])
-    IL_00fb:  stloc.s    V_4
-    IL_00fd:  ldc.i4.3
-    IL_00fe:  newarr     uint8[]
-    IL_0103:  dup
-    IL_0104:  ldc.i4.0
-    IL_0105:  ldloc.2
-    IL_0106:  stelem.ref
-    IL_0107:  dup
-    IL_0108:  ldc.i4.1
-    IL_0109:  ldloc.3
-    IL_010a:  stelem.ref
-    IL_010b:  dup
-    IL_010c:  ldc.i4.2
-    IL_010d:  ldloc.s    V_4
-    IL_010f:  stelem.ref
-    IL_0110:  ret
+    IL_00fc:  stloc.s    V_4
+    IL_00fe:  ldc.i4.3
+    IL_00ff:  newarr     uint8[]
+    IL_0104:  dup
+    IL_0105:  ldc.i4.0
+    IL_0106:  ldloc.2
+    IL_0107:  stelem.ref
+    IL_0108:  dup
+    IL_0109:  ldc.i4.1
+    IL_010a:  ldloc.3
+    IL_010b:  stelem.ref
+    IL_010c:  dup
+    IL_010d:  ldc.i4.2
+    IL_010e:  ldloc.s    V_4
+    IL_0110:  stelem.ref
+    IL_0111:  ret
   } // end of method AesCbcHmacEncryption::Encrypt
 
   .method public hidebysig newslot virtual final 
@@ -7300,7 +7175,7 @@
                                     uint8[] cipherText,
                                     uint8[] authTag) cil managed
   {
-    // Code size       247 (0xf7)
+    // Code size       248 (0xf8)
     .maxstack  6
     .locals init (uint8[] V_0,
              uint8[] V_1,
@@ -7330,140 +7205,141 @@
     IL_0024:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_0029:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_002e:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_0029:  ldc.i4.0
+    IL_002a:  newarr     [mscorlib]System.Object
+    IL_002f:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0033:  ldarg.2
-    IL_0034:  call       uint8[] Jose.Arrays::FirstHalf(uint8[])
-    IL_0039:  stloc.0
-    IL_003a:  ldarg.2
-    IL_003b:  call       uint8[] Jose.Arrays::SecondHalf(uint8[])
-    IL_0040:  stloc.1
-    IL_0041:  ldarg.0
-    IL_0042:  ldarg.1
-    IL_0043:  ldarg.3
-    IL_0044:  ldarg.s    cipherText
-    IL_0046:  ldloc.0
-    IL_0047:  call       instance uint8[] Jose.AesCbcHmacEncryption::ComputeAuthTag(uint8[],
+    IL_0034:  ldarg.2
+    IL_0035:  call       uint8[] Jose.Arrays::FirstHalf(uint8[])
+    IL_003a:  stloc.0
+    IL_003b:  ldarg.2
+    IL_003c:  call       uint8[] Jose.Arrays::SecondHalf(uint8[])
+    IL_0041:  stloc.1
+    IL_0042:  ldarg.0
+    IL_0043:  ldarg.1
+    IL_0044:  ldarg.3
+    IL_0045:  ldarg.s    cipherText
+    IL_0047:  ldloc.0
+    IL_0048:  call       instance uint8[] Jose.AesCbcHmacEncryption::ComputeAuthTag(uint8[],
                                                                                     uint8[],
                                                                                     uint8[],
                                                                                     uint8[])
-    IL_004c:  ldarg.s    authTag
-    IL_004e:  call       bool Jose.Arrays::ConstantTimeEquals(uint8[],
+    IL_004d:  ldarg.s    authTag
+    IL_004f:  call       bool Jose.Arrays::ConstantTimeEquals(uint8[],
                                                               uint8[])
-    IL_0053:  brtrue.s   IL_0060
+    IL_0054:  brtrue.s   IL_0061
 
-    IL_0055:  ldstr      "Authentication tag do not match."
-    IL_005a:  newobj     instance void Jose.IntegrityException::.ctor(string)
-    IL_005f:  throw
+    IL_0056:  ldstr      "Authentication tag do not match."
+    IL_005b:  newobj     instance void Jose.IntegrityException::.ctor(string)
+    IL_0060:  throw
 
-    IL_0060:  nop
+    IL_0061:  nop
     .try
     {
-      IL_0061:  call       class [mscorlib]System.Security.Cryptography.Aes [mscorlib]System.Security.Cryptography.Aes::Create()
-      IL_0066:  stloc.2
+      IL_0062:  call       class [mscorlib]System.Security.Cryptography.Aes [mscorlib]System.Security.Cryptography.Aes::Create()
+      IL_0067:  stloc.2
       .try
       {
-        IL_0067:  ldloc.2
-        IL_0068:  ldloc.1
-        IL_0069:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_Key(uint8[])
-        IL_006e:  ldloc.2
-        IL_006f:  ldarg.3
-        IL_0070:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_IV(uint8[])
-        IL_0075:  newobj     instance void [mscorlib]System.IO.MemoryStream::.ctor()
-        IL_007a:  stloc.3
+        IL_0068:  ldloc.2
+        IL_0069:  ldloc.1
+        IL_006a:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_Key(uint8[])
+        IL_006f:  ldloc.2
+        IL_0070:  ldarg.3
+        IL_0071:  callvirt   instance void [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::set_IV(uint8[])
+        IL_0076:  newobj     instance void [mscorlib]System.IO.MemoryStream::.ctor()
+        IL_007b:  stloc.3
         .try
         {
-          IL_007b:  ldloc.2
           IL_007c:  ldloc.2
-          IL_007d:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_Key()
-          IL_0082:  ldloc.2
-          IL_0083:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
-          IL_0088:  callvirt   instance class [mscorlib]System.Security.Cryptography.ICryptoTransform [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::CreateDecryptor(uint8[],
+          IL_007d:  ldloc.2
+          IL_007e:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_Key()
+          IL_0083:  ldloc.2
+          IL_0084:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::get_IV()
+          IL_0089:  callvirt   instance class [mscorlib]System.Security.Cryptography.ICryptoTransform [mscorlib]System.Security.Cryptography.SymmetricAlgorithm::CreateDecryptor(uint8[],
                                                                                                                                                                                  uint8[])
-          IL_008d:  stloc.s    V_4
+          IL_008e:  stloc.s    V_4
           .try
           {
-            IL_008f:  ldloc.3
-            IL_0090:  ldloc.s    V_4
-            IL_0092:  ldc.i4.1
-            IL_0093:  newobj     instance void [mscorlib]System.Security.Cryptography.CryptoStream::.ctor(class [mscorlib]System.IO.Stream,
+            IL_0090:  ldloc.3
+            IL_0091:  ldloc.s    V_4
+            IL_0093:  ldc.i4.1
+            IL_0094:  newobj     instance void [mscorlib]System.Security.Cryptography.CryptoStream::.ctor(class [mscorlib]System.IO.Stream,
                                                                                                           class [mscorlib]System.Security.Cryptography.ICryptoTransform,
                                                                                                           valuetype [mscorlib]System.Security.Cryptography.CryptoStreamMode)
-            IL_0098:  stloc.s    V_5
+            IL_0099:  stloc.s    V_5
             .try
             {
-              IL_009a:  ldloc.s    V_5
-              IL_009c:  ldarg.s    cipherText
-              IL_009e:  ldc.i4.0
-              IL_009f:  ldarg.s    cipherText
-              IL_00a1:  ldlen
-              IL_00a2:  conv.i4
-              IL_00a3:  callvirt   instance void [mscorlib]System.IO.Stream::Write(uint8[],
+              IL_009b:  ldloc.s    V_5
+              IL_009d:  ldarg.s    cipherText
+              IL_009f:  ldc.i4.0
+              IL_00a0:  ldarg.s    cipherText
+              IL_00a2:  ldlen
+              IL_00a3:  conv.i4
+              IL_00a4:  callvirt   instance void [mscorlib]System.IO.Stream::Write(uint8[],
                                                                                    int32,
                                                                                    int32)
-              IL_00a8:  ldloc.s    V_5
-              IL_00aa:  callvirt   instance void [mscorlib]System.Security.Cryptography.CryptoStream::FlushFinalBlock()
-              IL_00af:  ldloc.3
-              IL_00b0:  callvirt   instance uint8[] [mscorlib]System.IO.MemoryStream::ToArray()
-              IL_00b5:  stloc.s    V_6
-              IL_00b7:  leave.s    IL_00f4
+              IL_00a9:  ldloc.s    V_5
+              IL_00ab:  callvirt   instance void [mscorlib]System.Security.Cryptography.CryptoStream::FlushFinalBlock()
+              IL_00b0:  ldloc.3
+              IL_00b1:  callvirt   instance uint8[] [mscorlib]System.IO.MemoryStream::ToArray()
+              IL_00b6:  stloc.s    V_6
+              IL_00b8:  leave.s    IL_00f5
 
             }  // end .try
             finally
             {
-              IL_00b9:  ldloc.s    V_5
-              IL_00bb:  brfalse.s  IL_00c4
+              IL_00ba:  ldloc.s    V_5
+              IL_00bc:  brfalse.s  IL_00c5
 
-              IL_00bd:  ldloc.s    V_5
-              IL_00bf:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-              IL_00c4:  endfinally
+              IL_00be:  ldloc.s    V_5
+              IL_00c0:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+              IL_00c5:  endfinally
             }  // end handler
           }  // end .try
           finally
           {
-            IL_00c5:  ldloc.s    V_4
-            IL_00c7:  brfalse.s  IL_00d0
+            IL_00c6:  ldloc.s    V_4
+            IL_00c8:  brfalse.s  IL_00d1
 
-            IL_00c9:  ldloc.s    V_4
-            IL_00cb:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-            IL_00d0:  endfinally
+            IL_00ca:  ldloc.s    V_4
+            IL_00cc:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+            IL_00d1:  endfinally
           }  // end handler
         }  // end .try
         finally
         {
-          IL_00d1:  ldloc.3
-          IL_00d2:  brfalse.s  IL_00da
+          IL_00d2:  ldloc.3
+          IL_00d3:  brfalse.s  IL_00db
 
-          IL_00d4:  ldloc.3
-          IL_00d5:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-          IL_00da:  endfinally
+          IL_00d5:  ldloc.3
+          IL_00d6:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+          IL_00db:  endfinally
         }  // end handler
       }  // end .try
       finally
       {
-        IL_00db:  ldloc.2
-        IL_00dc:  brfalse.s  IL_00e4
+        IL_00dc:  ldloc.2
+        IL_00dd:  brfalse.s  IL_00e5
 
-        IL_00de:  ldloc.2
-        IL_00df:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-        IL_00e4:  endfinally
+        IL_00df:  ldloc.2
+        IL_00e0:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+        IL_00e5:  endfinally
       }  // end handler
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
     {
-      IL_00e5:  stloc.s    V_7
-      IL_00e7:  ldstr      "Unable to decrypt content"
-      IL_00ec:  ldloc.s    V_7
-      IL_00ee:  newobj     instance void Jose.EncryptionException::.ctor(string,
+      IL_00e6:  stloc.s    V_7
+      IL_00e8:  ldstr      "Unable to decrypt content"
+      IL_00ed:  ldloc.s    V_7
+      IL_00ef:  newobj     instance void Jose.EncryptionException::.ctor(string,
                                                                          class [mscorlib]System.Exception)
-      IL_00f3:  throw
+      IL_00f4:  throw
 
     }  // end handler
-    IL_00f4:  ldloc.s    V_6
-    IL_00f6:  ret
+    IL_00f5:  ldloc.s    V_6
+    IL_00f7:  ret
   } // end of method AesCbcHmacEncryption::Decrypt
 
   .method public hidebysig newslot specialname virtual final 
@@ -7554,7 +7430,7 @@
                                       uint8[] plainText,
                                       uint8[] cek) cil managed
   {
-    // Code size       109 (0x6d)
+    // Code size       110 (0x6e)
     .maxstack  6
     .locals init (uint8[] V_0,
              uint8[][] V_1,
@@ -7580,59 +7456,60 @@
     IL_0024:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_0029:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_002e:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_0029:  ldc.i4.0
+    IL_002a:  newarr     [mscorlib]System.Object
+    IL_002f:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
-    IL_0033:  ldc.i4.s   96
-    IL_0035:  call       uint8[] Jose.Arrays::Random(int32)
-    IL_003a:  stloc.0
+    IL_0034:  ldc.i4.s   96
+    IL_0036:  call       uint8[] Jose.Arrays::Random(int32)
+    IL_003b:  stloc.0
     .try
     {
-      IL_003b:  ldarg.3
-      IL_003c:  ldloc.0
-      IL_003d:  ldarg.1
-      IL_003e:  ldarg.2
-      IL_003f:  call       uint8[][] Jose.AesGcm::Encrypt(uint8[],
+      IL_003c:  ldarg.3
+      IL_003d:  ldloc.0
+      IL_003e:  ldarg.1
+      IL_003f:  ldarg.2
+      IL_0040:  call       uint8[][] Jose.AesGcm::Encrypt(uint8[],
                                                           uint8[],
                                                           uint8[],
                                                           uint8[])
-      IL_0044:  stloc.1
-      IL_0045:  ldc.i4.3
-      IL_0046:  newarr     uint8[]
-      IL_004b:  dup
-      IL_004c:  ldc.i4.0
-      IL_004d:  ldloc.0
-      IL_004e:  stelem.ref
-      IL_004f:  dup
-      IL_0050:  ldc.i4.1
-      IL_0051:  ldloc.1
-      IL_0052:  ldc.i4.0
-      IL_0053:  ldelem.ref
-      IL_0054:  stelem.ref
-      IL_0055:  dup
-      IL_0056:  ldc.i4.2
-      IL_0057:  ldloc.1
-      IL_0058:  ldc.i4.1
-      IL_0059:  ldelem.ref
-      IL_005a:  stelem.ref
-      IL_005b:  stloc.2
-      IL_005c:  leave.s    IL_006b
+      IL_0045:  stloc.1
+      IL_0046:  ldc.i4.3
+      IL_0047:  newarr     uint8[]
+      IL_004c:  dup
+      IL_004d:  ldc.i4.0
+      IL_004e:  ldloc.0
+      IL_004f:  stelem.ref
+      IL_0050:  dup
+      IL_0051:  ldc.i4.1
+      IL_0052:  ldloc.1
+      IL_0053:  ldc.i4.0
+      IL_0054:  ldelem.ref
+      IL_0055:  stelem.ref
+      IL_0056:  dup
+      IL_0057:  ldc.i4.2
+      IL_0058:  ldloc.1
+      IL_0059:  ldc.i4.1
+      IL_005a:  ldelem.ref
+      IL_005b:  stelem.ref
+      IL_005c:  stloc.2
+      IL_005d:  leave.s    IL_006c
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
     {
-      IL_005e:  stloc.3
-      IL_005f:  ldstr      "Unable to encrypt content."
-      IL_0064:  ldloc.3
-      IL_0065:  newobj     instance void Jose.EncryptionException::.ctor(string,
+      IL_005f:  stloc.3
+      IL_0060:  ldstr      "Unable to encrypt content."
+      IL_0065:  ldloc.3
+      IL_0066:  newobj     instance void Jose.EncryptionException::.ctor(string,
                                                                          class [mscorlib]System.Exception)
-      IL_006a:  throw
+      IL_006b:  throw
 
     }  // end handler
-    IL_006b:  ldloc.2
-    IL_006c:  ret
+    IL_006c:  ldloc.2
+    IL_006d:  ret
   } // end of method AesGcmEncryption::Encrypt
 
   .method public hidebysig newslot virtual final 
@@ -7642,7 +7519,7 @@
                                     uint8[] cipherText,
                                     uint8[] authTag) cil managed
   {
-    // Code size       81 (0x51)
+    // Code size       82 (0x52)
     .maxstack  6
     .locals init (uint8[] V_0,
              class [mscorlib]System.Security.Cryptography.CryptographicException V_1)
@@ -7666,40 +7543,41 @@
     IL_0024:  call       string [mscorlib]System.String::Format(string,
                                                                 object,
                                                                 object)
-    IL_0029:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_002e:  call       void Jose.Ensure::BitSize(uint8[],
+    IL_0029:  ldc.i4.0
+    IL_002a:  newarr     [mscorlib]System.Object
+    IL_002f:  call       void Jose.Ensure::BitSize(uint8[],
                                                    int64,
                                                    string,
                                                    object[])
     .try
     {
-      IL_0033:  ldarg.2
-      IL_0034:  ldarg.3
-      IL_0035:  ldarg.1
-      IL_0036:  ldarg.s    cipherText
-      IL_0038:  ldarg.s    authTag
-      IL_003a:  call       uint8[] Jose.AesGcm::Decrypt(uint8[],
+      IL_0034:  ldarg.2
+      IL_0035:  ldarg.3
+      IL_0036:  ldarg.1
+      IL_0037:  ldarg.s    cipherText
+      IL_0039:  ldarg.s    authTag
+      IL_003b:  call       uint8[] Jose.AesGcm::Decrypt(uint8[],
                                                         uint8[],
                                                         uint8[],
                                                         uint8[],
                                                         uint8[])
-      IL_003f:  stloc.0
-      IL_0040:  leave.s    IL_004f
+      IL_0040:  stloc.0
+      IL_0041:  leave.s    IL_0050
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
     {
-      IL_0042:  stloc.1
-      IL_0043:  ldstr      "Unable to decrypt content or authentication tag do"
+      IL_0043:  stloc.1
+      IL_0044:  ldstr      "Unable to decrypt content or authentication tag do"
       + " not match."
-      IL_0048:  ldloc.1
-      IL_0049:  newobj     instance void Jose.EncryptionException::.ctor(string,
+      IL_0049:  ldloc.1
+      IL_004a:  newobj     instance void Jose.EncryptionException::.ctor(string,
                                                                          class [mscorlib]System.Exception)
-      IL_004e:  throw
+      IL_004f:  throw
 
     }  // end handler
-    IL_004f:  ldloc.0
-    IL_0050:  ret
+    IL_0050:  ldloc.0
+    IL_0051:  ret
   } // end of method AesGcmEncryption::Decrypt
 
   .method public hidebysig newslot specialname virtual final 
@@ -7717,6 +7595,226 @@
     .get instance int32 Jose.AesGcmEncryption::get_KeySize()
   } // end of property AesGcmEncryption::KeySize
 } // end of class Jose.AesGcmEncryption
+
+.class public auto ansi beforefieldinit Jose.EcdsaUsingSha
+       extends [mscorlib]System.Object
+       implements Jose.IJwsAlgorithm
+{
+  .field private int32 keySize
+  .method public hidebysig specialname rtspecialname 
+          instance void  .ctor(int32 keySize) cil managed
+  {
+    // Code size       14 (0xe)
+    .maxstack  8
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
+    IL_0006:  ldarg.0
+    IL_0007:  ldarg.1
+    IL_0008:  stfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_000d:  ret
+  } // end of method EcdsaUsingSha::.ctor
+
+  .method public hidebysig newslot virtual final 
+          instance uint8[]  Sign(uint8[] securedInput,
+                                 object key) cil managed
+  {
+    // Code size       121 (0x79)
+    .maxstack  5
+    .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
+             class [System.Core]System.Security.Cryptography.ECDsaCng V_1,
+             uint8[] V_2,
+             class [mscorlib]System.Security.Cryptography.CryptographicException V_3)
+    IL_0000:  ldarg.2
+    IL_0001:  ldstr      "EcdsaUsingSha alg expects key to be of CngKey type."
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
+                                                                                                       string,
+                                                                                                       object[])
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
+    IL_0018:  ldarg.0
+    IL_0019:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_001e:  ldstr      "ECDSA algorithm expected key of size {0} bits, but"
+    + " was given {1} bits"
+    IL_0023:  ldarg.0
+    IL_0024:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_0029:  box        [mscorlib]System.Int32
+    IL_002e:  ldloc.0
+    IL_002f:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
+    IL_0034:  box        [mscorlib]System.Int32
+    IL_0039:  call       string [mscorlib]System.String::Format(string,
+                                                                object,
+                                                                object)
+    IL_003e:  call       void Jose.Ensure::BitSize(int32,
+                                                   int32,
+                                                   string)
+    .try
+    {
+      IL_0043:  ldloc.0
+      IL_0044:  newobj     instance void [System.Core]System.Security.Cryptography.ECDsaCng::.ctor(class [System.Core]System.Security.Cryptography.CngKey)
+      IL_0049:  stloc.1
+      .try
+      {
+        IL_004a:  ldloc.1
+        IL_004b:  ldarg.0
+        IL_004c:  call       instance class [System.Core]System.Security.Cryptography.CngAlgorithm Jose.EcdsaUsingSha::get_Hash()
+        IL_0051:  callvirt   instance void [System.Core]System.Security.Cryptography.ECDsaCng::set_HashAlgorithm(class [System.Core]System.Security.Cryptography.CngAlgorithm)
+        IL_0056:  ldloc.1
+        IL_0057:  ldarg.1
+        IL_0058:  callvirt   instance uint8[] [System.Core]System.Security.Cryptography.ECDsaCng::SignData(uint8[])
+        IL_005d:  stloc.2
+        IL_005e:  leave.s    IL_0077
+
+      }  // end .try
+      finally
+      {
+        IL_0060:  ldloc.1
+        IL_0061:  brfalse.s  IL_0069
+
+        IL_0063:  ldloc.1
+        IL_0064:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+        IL_0069:  endfinally
+      }  // end handler
+    }  // end .try
+    catch [mscorlib]System.Security.Cryptography.CryptographicException 
+    {
+      IL_006a:  stloc.3
+      IL_006b:  ldstr      "Unable to sign content."
+      IL_0070:  ldloc.3
+      IL_0071:  newobj     instance void Jose.JoseException::.ctor(string,
+                                                                   class [mscorlib]System.Exception)
+      IL_0076:  throw
+
+    }  // end handler
+    IL_0077:  ldloc.2
+    IL_0078:  ret
+  } // end of method EcdsaUsingSha::Sign
+
+  .method public hidebysig newslot virtual final 
+          instance bool  Verify(uint8[] signature,
+                                uint8[] securedInput,
+                                object key) cil managed
+  {
+    // Code size       114 (0x72)
+    .maxstack  5
+    .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
+             class [System.Core]System.Security.Cryptography.ECDsaCng V_1,
+             bool V_2)
+    IL_0000:  ldarg.3
+    IL_0001:  ldstr      "EcdsaUsingSha alg expects key to be of CngKey type."
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<class [System.Core]System.Security.Cryptography.CngKey>(object,
+                                                                                                       string,
+                                                                                                       object[])
+    IL_0011:  stloc.0
+    IL_0012:  ldloc.0
+    IL_0013:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
+    IL_0018:  ldarg.0
+    IL_0019:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_001e:  ldstr      "ECDSA algorithm expected key of size {0} bits, but"
+    + " was given {1} bits"
+    IL_0023:  ldarg.0
+    IL_0024:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_0029:  box        [mscorlib]System.Int32
+    IL_002e:  ldloc.0
+    IL_002f:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
+    IL_0034:  box        [mscorlib]System.Int32
+    IL_0039:  call       string [mscorlib]System.String::Format(string,
+                                                                object,
+                                                                object)
+    IL_003e:  call       void Jose.Ensure::BitSize(int32,
+                                                   int32,
+                                                   string)
+    .try
+    {
+      IL_0043:  ldloc.0
+      IL_0044:  newobj     instance void [System.Core]System.Security.Cryptography.ECDsaCng::.ctor(class [System.Core]System.Security.Cryptography.CngKey)
+      IL_0049:  stloc.1
+      .try
+      {
+        IL_004a:  ldloc.1
+        IL_004b:  ldarg.0
+        IL_004c:  call       instance class [System.Core]System.Security.Cryptography.CngAlgorithm Jose.EcdsaUsingSha::get_Hash()
+        IL_0051:  callvirt   instance void [System.Core]System.Security.Cryptography.ECDsaCng::set_HashAlgorithm(class [System.Core]System.Security.Cryptography.CngAlgorithm)
+        IL_0056:  ldloc.1
+        IL_0057:  ldarg.2
+        IL_0058:  ldarg.1
+        IL_0059:  callvirt   instance bool [System.Core]System.Security.Cryptography.ECDsaCng::VerifyData(uint8[],
+                                                                                                          uint8[])
+        IL_005e:  stloc.2
+        IL_005f:  leave.s    IL_0070
+
+      }  // end .try
+      finally
+      {
+        IL_0061:  ldloc.1
+        IL_0062:  brfalse.s  IL_006a
+
+        IL_0064:  ldloc.1
+        IL_0065:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+        IL_006a:  endfinally
+      }  // end handler
+    }  // end .try
+    catch [mscorlib]System.Security.Cryptography.CryptographicException 
+    {
+      IL_006b:  pop
+      IL_006c:  ldc.i4.0
+      IL_006d:  stloc.2
+      IL_006e:  leave.s    IL_0070
+
+    }  // end handler
+    IL_0070:  ldloc.2
+    IL_0071:  ret
+  } // end of method EcdsaUsingSha::Verify
+
+  .method family hidebysig specialname instance class [System.Core]System.Security.Cryptography.CngAlgorithm 
+          get_Hash() cil managed
+  {
+    // Code size       84 (0x54)
+    .maxstack  2
+    IL_0000:  ldarg.0
+    IL_0001:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_0006:  ldc.i4     0x100
+    IL_000b:  bne.un.s   IL_0013
+
+    IL_000d:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha256()
+    IL_0012:  ret
+
+    IL_0013:  ldarg.0
+    IL_0014:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_0019:  ldc.i4     0x180
+    IL_001e:  bne.un.s   IL_0026
+
+    IL_0020:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha384()
+    IL_0025:  ret
+
+    IL_0026:  ldarg.0
+    IL_0027:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_002c:  ldc.i4     0x209
+    IL_0031:  bne.un.s   IL_0039
+
+    IL_0033:  call       class [System.Core]System.Security.Cryptography.CngAlgorithm [System.Core]System.Security.Cryptography.CngAlgorithm::get_Sha512()
+    IL_0038:  ret
+
+    IL_0039:  ldstr      "Unsupported key size: '{0} bytes'"
+    IL_003e:  ldarg.0
+    IL_003f:  ldfld      int32 Jose.EcdsaUsingSha::keySize
+    IL_0044:  box        [mscorlib]System.Int32
+    IL_0049:  call       string [mscorlib]System.String::Format(string,
+                                                                object)
+    IL_004e:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
+    IL_0053:  throw
+  } // end of method EcdsaUsingSha::get_Hash
+
+  .property instance class [System.Core]System.Security.Cryptography.CngAlgorithm
+          Hash()
+  {
+    .get instance class [System.Core]System.Security.Cryptography.CngAlgorithm Jose.EcdsaUsingSha::get_Hash()
+  } // end of property EcdsaUsingSha::Hash
+} // end of class Jose.EcdsaUsingSha
 
 .class public auto ansi beforefieldinit Jose.HmacUsingSha
        extends [mscorlib]System.Object
@@ -7740,42 +7838,43 @@
           instance uint8[]  Sign(uint8[] securedInput,
                                  object key) cil managed
   {
-    // Code size       47 (0x2f)
+    // Code size       48 (0x30)
     .maxstack  3
     .locals init (uint8[] V_0,
              class [mscorlib]System.Security.Cryptography.KeyedHashAlgorithm V_1,
              uint8[] V_2)
     IL_0000:  ldarg.2
     IL_0001:  ldstr      "HmacUsingSha alg expectes key to be byte[] array."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<uint8[]>(object,
                                                         string,
                                                         object[])
-    IL_0010:  stloc.0
-    IL_0011:  ldarg.0
-    IL_0012:  ldloc.0
-    IL_0013:  call       instance class [mscorlib]System.Security.Cryptography.KeyedHashAlgorithm Jose.HmacUsingSha::KeyedHash(uint8[])
-    IL_0018:  stloc.1
+    IL_0011:  stloc.0
+    IL_0012:  ldarg.0
+    IL_0013:  ldloc.0
+    IL_0014:  call       instance class [mscorlib]System.Security.Cryptography.KeyedHashAlgorithm Jose.HmacUsingSha::KeyedHash(uint8[])
+    IL_0019:  stloc.1
     .try
     {
-      IL_0019:  ldloc.1
-      IL_001a:  ldarg.1
-      IL_001b:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.HashAlgorithm::ComputeHash(uint8[])
-      IL_0020:  stloc.2
-      IL_0021:  leave.s    IL_002d
+      IL_001a:  ldloc.1
+      IL_001b:  ldarg.1
+      IL_001c:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.HashAlgorithm::ComputeHash(uint8[])
+      IL_0021:  stloc.2
+      IL_0022:  leave.s    IL_002e
 
     }  // end .try
     finally
     {
-      IL_0023:  ldloc.1
-      IL_0024:  brfalse.s  IL_002c
+      IL_0024:  ldloc.1
+      IL_0025:  brfalse.s  IL_002d
 
-      IL_0026:  ldloc.1
-      IL_0027:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-      IL_002c:  endfinally
+      IL_0027:  ldloc.1
+      IL_0028:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_002d:  endfinally
     }  // end handler
-    IL_002d:  ldloc.2
-    IL_002e:  ret
+    IL_002e:  ldloc.2
+    IL_002f:  ret
   } // end of method HmacUsingSha::Sign
 
   .method public hidebysig newslot virtual final 
@@ -7880,19 +7979,20 @@
                                 uint8[] securedInput,
                                 object key) cil managed
   {
-    // Code size       22 (0x16)
+    // Code size       23 (0x17)
     .maxstack  8
     IL_0000:  ldarg.3
     IL_0001:  ldstr      "Plaintext alg expectes key to be null."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       void Jose.Ensure::IsNull(object,
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       void Jose.Ensure::IsNull(object,
                                                   string,
                                                   object[])
-    IL_0010:  ldarg.1
-    IL_0011:  ldlen
-    IL_0012:  ldc.i4.0
-    IL_0013:  ceq
-    IL_0015:  ret
+    IL_0011:  ldarg.1
+    IL_0012:  ldlen
+    IL_0013:  ldc.i4.0
+    IL_0014:  ceq
+    IL_0016:  ret
   } // end of method Plaintext::Verify
 
   .method public hidebysig specialname rtspecialname 
@@ -7929,7 +8029,7 @@
           instance uint8[]  Sign(uint8[] securedInput,
                                  object key) cil managed
   {
-    // Code size       158 (0x9e)
+    // Code size       126 (0x7e)
     .maxstack  4
     .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
              uint8[] V_1,
@@ -7956,7 +8056,7 @@
                                                      class [System.Core]System.Security.Cryptography.CngAlgorithm,
                                                      int32)
       IL_0022:  stloc.1
-      IL_0023:  leave.s    IL_009c
+      IL_0023:  leave.s    IL_007c
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
@@ -7992,7 +8092,7 @@
                                                      class [System.Core]System.Security.Cryptography.CngAlgorithm,
                                                      int32)
       IL_005f:  stloc.1
-      IL_0060:  leave.s    IL_009c
+      IL_0060:  leave.s    IL_007c
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
@@ -8005,28 +8105,13 @@
       IL_0070:  throw
 
     }  // end handler
-    IL_0071:  ldarg.2
-    IL_0072:  isinst     [mscorlib]System.Security.Cryptography.RSA
-    IL_0077:  brfalse.s  IL_0091
+    IL_0071:  ldstr      "RsaUsingSha with PSS padding alg expects key to be"
+    + " of CngKey type."
+    IL_0076:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
+    IL_007b:  throw
 
-    IL_0079:  ldarg.2
-    IL_007a:  castclass  [mscorlib]System.Security.Cryptography.RSA
-    IL_007f:  ldarg.1
-    IL_0080:  ldarg.0
-    IL_0081:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.RsaPssUsingSha::get_HashAlgorithm()
-    IL_0086:  call       class [mscorlib]System.Security.Cryptography.RSASignaturePadding [mscorlib]System.Security.Cryptography.RSASignaturePadding::get_Pss()
-    IL_008b:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::SignData(uint8[],
-                                                                                               valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName,
-                                                                                               class [mscorlib]System.Security.Cryptography.RSASignaturePadding)
-    IL_0090:  ret
-
-    IL_0091:  ldstr      "RsaUsingSha with PSS padding alg expects key to be"
-    + " of either CngKey or RSA types."
-    IL_0096:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_009b:  throw
-
-    IL_009c:  ldloc.1
-    IL_009d:  ret
+    IL_007c:  ldloc.1
+    IL_007d:  ret
   } // end of method RsaPssUsingSha::Sign
 
   .method public hidebysig newslot virtual final 
@@ -8034,7 +8119,7 @@
                                 uint8[] securedInput,
                                 object key) cil managed
   {
-    // Code size       143 (0x8f)
+    // Code size       110 (0x6e)
     .maxstack  5
     .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
              bool V_1,
@@ -8061,7 +8146,7 @@
                                                     class [System.Core]System.Security.Cryptography.CngAlgorithm,
                                                     int32)
       IL_0023:  stloc.1
-      IL_0024:  leave.s    IL_008d
+      IL_0024:  leave.s    IL_006c
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
@@ -8069,7 +8154,7 @@
       IL_0026:  pop
       IL_0027:  ldc.i4.0
       IL_0028:  stloc.1
-      IL_0029:  leave.s    IL_008d
+      IL_0029:  leave.s    IL_006c
 
     }  // end handler
     IL_002b:  ldarg.3
@@ -8097,7 +8182,7 @@
                                                     class [System.Core]System.Security.Cryptography.CngAlgorithm,
                                                     int32)
       IL_0059:  stloc.1
-      IL_005a:  leave.s    IL_008d
+      IL_005a:  leave.s    IL_006c
 
     }  // end .try
     catch [mscorlib]System.Security.Cryptography.CryptographicException 
@@ -8105,73 +8190,17 @@
       IL_005c:  pop
       IL_005d:  ldc.i4.0
       IL_005e:  stloc.1
-      IL_005f:  leave.s    IL_008d
+      IL_005f:  leave.s    IL_006c
 
     }  // end handler
-    IL_0061:  ldarg.3
-    IL_0062:  isinst     [mscorlib]System.Security.Cryptography.RSA
-    IL_0067:  brfalse.s  IL_0082
+    IL_0061:  ldstr      "RsaUsingSha with PSS padding alg expects key to be"
+    + " of CngKey type."
+    IL_0066:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
+    IL_006b:  throw
 
-    IL_0069:  ldarg.3
-    IL_006a:  castclass  [mscorlib]System.Security.Cryptography.RSA
-    IL_006f:  ldarg.2
-    IL_0070:  ldarg.1
-    IL_0071:  ldarg.0
-    IL_0072:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.RsaPssUsingSha::get_HashAlgorithm()
-    IL_0077:  call       class [mscorlib]System.Security.Cryptography.RSASignaturePadding [mscorlib]System.Security.Cryptography.RSASignaturePadding::get_Pss()
-    IL_007c:  callvirt   instance bool [mscorlib]System.Security.Cryptography.RSA::VerifyData(uint8[],
-                                                                                              uint8[],
-                                                                                              valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName,
-                                                                                              class [mscorlib]System.Security.Cryptography.RSASignaturePadding)
-    IL_0081:  ret
-
-    IL_0082:  ldstr      "RsaUsingSha with PSS padding alg expects key to be"
-    + " of either CngKey or RSA types."
-    IL_0087:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_008c:  throw
-
-    IL_008d:  ldloc.1
-    IL_008e:  ret
+    IL_006c:  ldloc.1
+    IL_006d:  ret
   } // end of method RsaPssUsingSha::Verify
-
-  .method private hidebysig specialname instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName 
-          get_HashAlgorithm() cil managed
-  {
-    // Code size       75 (0x4b)
-    .maxstack  2
-    IL_0000:  ldarg.0
-    IL_0001:  ldfld      int32 Jose.RsaPssUsingSha::saltSize
-    IL_0006:  ldc.i4.s   32
-    IL_0008:  bne.un.s   IL_0010
-
-    IL_000a:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA256()
-    IL_000f:  ret
-
-    IL_0010:  ldarg.0
-    IL_0011:  ldfld      int32 Jose.RsaPssUsingSha::saltSize
-    IL_0016:  ldc.i4.s   48
-    IL_0018:  bne.un.s   IL_0020
-
-    IL_001a:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA384()
-    IL_001f:  ret
-
-    IL_0020:  ldarg.0
-    IL_0021:  ldfld      int32 Jose.RsaPssUsingSha::saltSize
-    IL_0026:  ldc.i4.s   64
-    IL_0028:  bne.un.s   IL_0030
-
-    IL_002a:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA512()
-    IL_002f:  ret
-
-    IL_0030:  ldstr      "Unsupported salt size: '{0} bytes'"
-    IL_0035:  ldarg.0
-    IL_0036:  ldfld      int32 Jose.RsaPssUsingSha::saltSize
-    IL_003b:  box        [mscorlib]System.Int32
-    IL_0040:  call       string [mscorlib]System.String::Format(string,
-                                                                object)
-    IL_0045:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_004a:  throw
-  } // end of method RsaPssUsingSha::get_HashAlgorithm
 
   .method private hidebysig specialname instance class [System.Core]System.Security.Cryptography.CngAlgorithm 
           get_Hash() cil managed
@@ -8212,11 +8241,6 @@
     IL_004a:  throw
   } // end of method RsaPssUsingSha::get_Hash
 
-  .property instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName
-          HashAlgorithm()
-  {
-    .get instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.RsaPssUsingSha::get_HashAlgorithm()
-  } // end of property RsaPssUsingSha::HashAlgorithm
   .property instance class [System.Core]System.Security.Cryptography.CngAlgorithm
           Hash()
   {
@@ -8246,22 +8270,50 @@
           instance uint8[]  Sign(uint8[] securedInput,
                                  object key) cil managed
   {
-    // Code size       34 (0x22)
-    .maxstack  8
+    // Code size       70 (0x46)
+    .maxstack  3
+    .locals init (class [mscorlib]System.Security.Cryptography.RSA V_0,
+             class [mscorlib]System.Security.Cryptography.HashAlgorithm V_1,
+             uint8[] V_2)
     IL_0000:  ldarg.2
-    IL_0001:  ldstr      "RsaUsingSha alg expects key to be of RSA type."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<class [mscorlib]System.Security.Cryptography.RSA>(object,
+    IL_0001:  ldstr      "RsaUsingSha alg expects key to be of AsymmetricAlg"
+    + "orithm type."
+    IL_0006:  ldc.i4.0
+    IL_0007:  newarr     [mscorlib]System.Object
+    IL_000c:  call       !!0 Jose.Ensure::Type<class [mscorlib]System.Security.Cryptography.RSA>(object,
                                                                                                  string,
                                                                                                  object[])
-    IL_0010:  ldarg.1
-    IL_0011:  ldarg.0
-    IL_0012:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.RsaUsingSha::get_HashAlgorithm()
-    IL_0017:  call       class [mscorlib]System.Security.Cryptography.RSASignaturePadding [mscorlib]System.Security.Cryptography.RSASignaturePadding::get_Pkcs1()
-    IL_001c:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.RSA::SignData(uint8[],
-                                                                                               valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName,
-                                                                                               class [mscorlib]System.Security.Cryptography.RSASignaturePadding)
-    IL_0021:  ret
+    IL_0011:  stloc.0
+    IL_0012:  ldarg.0
+    IL_0013:  call       instance class [mscorlib]System.Security.Cryptography.HashAlgorithm Jose.RsaUsingSha::get_HashAlgorithm()
+    IL_0018:  stloc.1
+    .try
+    {
+      IL_0019:  ldloc.0
+      IL_001a:  newobj     instance void [mscorlib]System.Security.Cryptography.RSAPKCS1SignatureFormatter::.ctor(class [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm)
+      IL_001f:  dup
+      IL_0020:  ldarg.0
+      IL_0021:  ldfld      string Jose.RsaUsingSha::hashMethod
+      IL_0026:  callvirt   instance void [mscorlib]System.Security.Cryptography.AsymmetricSignatureFormatter::SetHashAlgorithm(string)
+      IL_002b:  ldloc.1
+      IL_002c:  ldarg.1
+      IL_002d:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.HashAlgorithm::ComputeHash(uint8[])
+      IL_0032:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.AsymmetricSignatureFormatter::CreateSignature(uint8[])
+      IL_0037:  stloc.2
+      IL_0038:  leave.s    IL_0044
+
+    }  // end .try
+    finally
+    {
+      IL_003a:  ldloc.1
+      IL_003b:  brfalse.s  IL_0043
+
+      IL_003d:  ldloc.1
+      IL_003e:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_0043:  endfinally
+    }  // end handler
+    IL_0044:  ldloc.2
+    IL_0045:  ret
   } // end of method RsaUsingSha::Sign
 
   .method public hidebysig newslot virtual final 
@@ -8269,27 +8321,55 @@
                                 uint8[] securedInput,
                                 object key) cil managed
   {
-    // Code size       35 (0x23)
-    .maxstack  8
-    IL_0000:  ldarg.3
-    IL_0001:  ldstr      "RsaUsingSha alg expects key to be of RSA type."
-    IL_0006:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000b:  call       !!0 Jose.Ensure::Type<class [mscorlib]System.Security.Cryptography.RSA>(object,
-                                                                                                 string,
-                                                                                                 object[])
-    IL_0010:  ldarg.2
-    IL_0011:  ldarg.1
-    IL_0012:  ldarg.0
-    IL_0013:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.RsaUsingSha::get_HashAlgorithm()
-    IL_0018:  call       class [mscorlib]System.Security.Cryptography.RSASignaturePadding [mscorlib]System.Security.Cryptography.RSASignaturePadding::get_Pkcs1()
-    IL_001d:  callvirt   instance bool [mscorlib]System.Security.Cryptography.RSA::VerifyData(uint8[],
-                                                                                              uint8[],
-                                                                                              valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName,
-                                                                                              class [mscorlib]System.Security.Cryptography.RSASignaturePadding)
-    IL_0022:  ret
+    // Code size       71 (0x47)
+    .maxstack  3
+    .locals init (class [mscorlib]System.Security.Cryptography.HashAlgorithm V_0,
+             uint8[] V_1,
+             bool V_2)
+    IL_0000:  ldarg.0
+    IL_0001:  call       instance class [mscorlib]System.Security.Cryptography.HashAlgorithm Jose.RsaUsingSha::get_HashAlgorithm()
+    IL_0006:  stloc.0
+    .try
+    {
+      IL_0007:  ldarg.3
+      IL_0008:  ldstr      "RsaUsingSha alg expects key to be of AsymmetricAlg"
+      + "orithm type."
+      IL_000d:  ldc.i4.0
+      IL_000e:  newarr     [mscorlib]System.Object
+      IL_0013:  call       !!0 Jose.Ensure::Type<class [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm>(object,
+                                                                                                                   string,
+                                                                                                                   object[])
+      IL_0018:  ldloc.0
+      IL_0019:  ldarg.2
+      IL_001a:  callvirt   instance uint8[] [mscorlib]System.Security.Cryptography.HashAlgorithm::ComputeHash(uint8[])
+      IL_001f:  stloc.1
+      IL_0020:  newobj     instance void [mscorlib]System.Security.Cryptography.RSAPKCS1SignatureDeformatter::.ctor(class [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm)
+      IL_0025:  dup
+      IL_0026:  ldarg.0
+      IL_0027:  ldfld      string Jose.RsaUsingSha::hashMethod
+      IL_002c:  callvirt   instance void [mscorlib]System.Security.Cryptography.AsymmetricSignatureDeformatter::SetHashAlgorithm(string)
+      IL_0031:  ldloc.1
+      IL_0032:  ldarg.1
+      IL_0033:  callvirt   instance bool [mscorlib]System.Security.Cryptography.AsymmetricSignatureDeformatter::VerifySignature(uint8[],
+                                                                                                                                uint8[])
+      IL_0038:  stloc.2
+      IL_0039:  leave.s    IL_0045
+
+    }  // end .try
+    finally
+    {
+      IL_003b:  ldloc.0
+      IL_003c:  brfalse.s  IL_0044
+
+      IL_003e:  ldloc.0
+      IL_003f:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
+      IL_0044:  endfinally
+    }  // end handler
+    IL_0045:  ldloc.2
+    IL_0046:  ret
   } // end of method RsaUsingSha::Verify
 
-  .method private hidebysig specialname instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName 
+  .method private hidebysig specialname instance class [mscorlib]System.Security.Cryptography.HashAlgorithm 
           get_HashAlgorithm() cil managed
   {
     // Code size       89 (0x59)
@@ -8300,7 +8380,7 @@
     IL_000b:  callvirt   instance bool [mscorlib]System.String::Equals(string)
     IL_0010:  brfalse.s  IL_0018
 
-    IL_0012:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA256()
+    IL_0012:  newobj     instance void [System.Core]System.Security.Cryptography.SHA256CryptoServiceProvider::.ctor()
     IL_0017:  ret
 
     IL_0018:  ldarg.0
@@ -8309,7 +8389,7 @@
     IL_0023:  callvirt   instance bool [mscorlib]System.String::Equals(string)
     IL_0028:  brfalse.s  IL_0030
 
-    IL_002a:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA384()
+    IL_002a:  newobj     instance void [System.Core]System.Security.Cryptography.SHA384CryptoServiceProvider::.ctor()
     IL_002f:  ret
 
     IL_0030:  ldarg.0
@@ -8318,7 +8398,7 @@
     IL_003b:  callvirt   instance bool [mscorlib]System.String::Equals(string)
     IL_0040:  brfalse.s  IL_0048
 
-    IL_0042:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA512()
+    IL_0042:  newobj     instance void [System.Core]System.Security.Cryptography.SHA512CryptoServiceProvider::.ctor()
     IL_0047:  ret
 
     IL_0048:  ldstr      "Unsupported hashing algorithm: '{0}'"
@@ -8329,10 +8409,10 @@
     IL_0058:  throw
   } // end of method RsaUsingSha::get_HashAlgorithm
 
-  .property instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName
+  .property instance class [mscorlib]System.Security.Cryptography.HashAlgorithm
           HashAlgorithm()
   {
-    .get instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.RsaUsingSha::get_HashAlgorithm()
+    .get instance class [mscorlib]System.Security.Cryptography.HashAlgorithm Jose.RsaUsingSha::get_HashAlgorithm()
   } // end of property RsaUsingSha::HashAlgorithm
 } // end of class Jose.RsaUsingSha
 
@@ -8390,7 +8470,7 @@
   .method public hidebysig static uint8[] 
           FirstHalf(uint8[] arr) cil managed
   {
-    // Code size       44 (0x2c)
+    // Code size       45 (0x2d)
     .maxstack  5
     .locals init (int32 V_0,
              uint8[] V_1)
@@ -8400,38 +8480,39 @@
     IL_0003:  ldc.i4.2
     IL_0004:  ldstr      "Arrays.FirstHalf() expects even number of element "
     + "in array."
-    IL_0009:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000e:  call       void Jose.Ensure::Divisible(int32,
+    IL_0009:  ldc.i4.0
+    IL_000a:  newarr     [mscorlib]System.Object
+    IL_000f:  call       void Jose.Ensure::Divisible(int32,
                                                      int32,
                                                      string,
                                                      object[])
-    IL_0013:  ldarg.0
-    IL_0014:  ldlen
-    IL_0015:  conv.i4
-    IL_0016:  ldc.i4.2
-    IL_0017:  div
-    IL_0018:  stloc.0
-    IL_0019:  ldloc.0
-    IL_001a:  newarr     [mscorlib]System.Byte
-    IL_001f:  stloc.1
-    IL_0020:  ldarg.0
-    IL_0021:  ldc.i4.0
-    IL_0022:  ldloc.1
-    IL_0023:  ldc.i4.0
-    IL_0024:  ldloc.0
-    IL_0025:  call       void [mscorlib]System.Buffer::BlockCopy(class [mscorlib]System.Array,
+    IL_0014:  ldarg.0
+    IL_0015:  ldlen
+    IL_0016:  conv.i4
+    IL_0017:  ldc.i4.2
+    IL_0018:  div
+    IL_0019:  stloc.0
+    IL_001a:  ldloc.0
+    IL_001b:  newarr     [mscorlib]System.Byte
+    IL_0020:  stloc.1
+    IL_0021:  ldarg.0
+    IL_0022:  ldc.i4.0
+    IL_0023:  ldloc.1
+    IL_0024:  ldc.i4.0
+    IL_0025:  ldloc.0
+    IL_0026:  call       void [mscorlib]System.Buffer::BlockCopy(class [mscorlib]System.Array,
                                                                  int32,
                                                                  class [mscorlib]System.Array,
                                                                  int32,
                                                                  int32)
-    IL_002a:  ldloc.1
-    IL_002b:  ret
+    IL_002b:  ldloc.1
+    IL_002c:  ret
   } // end of method Arrays::FirstHalf
 
   .method public hidebysig static uint8[] 
           SecondHalf(uint8[] arr) cil managed
   {
-    // Code size       44 (0x2c)
+    // Code size       45 (0x2d)
     .maxstack  5
     .locals init (int32 V_0,
              uint8[] V_1)
@@ -8441,32 +8522,33 @@
     IL_0003:  ldc.i4.2
     IL_0004:  ldstr      "Arrays.SecondHalf() expects even number of element"
     + " in array."
-    IL_0009:  call       !!0[] [mscorlib]System.Array::Empty<object>()
-    IL_000e:  call       void Jose.Ensure::Divisible(int32,
+    IL_0009:  ldc.i4.0
+    IL_000a:  newarr     [mscorlib]System.Object
+    IL_000f:  call       void Jose.Ensure::Divisible(int32,
                                                      int32,
                                                      string,
                                                      object[])
-    IL_0013:  ldarg.0
-    IL_0014:  ldlen
-    IL_0015:  conv.i4
-    IL_0016:  ldc.i4.2
-    IL_0017:  div
-    IL_0018:  stloc.0
-    IL_0019:  ldloc.0
-    IL_001a:  newarr     [mscorlib]System.Byte
-    IL_001f:  stloc.1
-    IL_0020:  ldarg.0
-    IL_0021:  ldloc.0
-    IL_0022:  ldloc.1
-    IL_0023:  ldc.i4.0
-    IL_0024:  ldloc.0
-    IL_0025:  call       void [mscorlib]System.Buffer::BlockCopy(class [mscorlib]System.Array,
+    IL_0014:  ldarg.0
+    IL_0015:  ldlen
+    IL_0016:  conv.i4
+    IL_0017:  ldc.i4.2
+    IL_0018:  div
+    IL_0019:  stloc.0
+    IL_001a:  ldloc.0
+    IL_001b:  newarr     [mscorlib]System.Byte
+    IL_0020:  stloc.1
+    IL_0021:  ldarg.0
+    IL_0022:  ldloc.0
+    IL_0023:  ldloc.1
+    IL_0024:  ldc.i4.0
+    IL_0025:  ldloc.0
+    IL_0026:  call       void [mscorlib]System.Buffer::BlockCopy(class [mscorlib]System.Array,
                                                                  int32,
                                                                  class [mscorlib]System.Array,
                                                                  int32,
                                                                  int32)
-    IL_002a:  ldloc.1
-    IL_002b:  ret
+    IL_002b:  ldloc.1
+    IL_002c:  ret
   } // end of method Arrays::SecondHalf
 
   .method public hidebysig static uint8[] 
@@ -10465,7 +10547,7 @@
         // Code size       7 (0x7)
         .maxstack  8
         IL_0000:  ldarg.1
-        IL_0001:  call       int32 [mscorlib]System.Runtime.InteropServices.Marshal::SizeOf<class Jose.native.NCrypt/NCryptBuffer>(!!0)
+        IL_0001:  call       int32 [mscorlib]System.Runtime.InteropServices.Marshal::SizeOf(object)
         IL_0006:  ret
       } // end of method '<>c'::'<.ctor>b__3_0'
 
@@ -10531,12 +10613,12 @@
       IL_005a:  call       native int [mscorlib]System.IntPtr::op_Addition(native int,
                                                                            int32)
       IL_005f:  ldc.i4.0
-      IL_0060:  call       void [mscorlib]System.Runtime.InteropServices.Marshal::StructureToPtr<class Jose.native.NCrypt/NCryptBuffer>(!!0,
-                                                                                                                                        native int,
-                                                                                                                                        bool)
+      IL_0060:  call       void [mscorlib]System.Runtime.InteropServices.Marshal::StructureToPtr(object,
+                                                                                                 native int,
+                                                                                                 bool)
       IL_0065:  ldloc.0
       IL_0066:  ldloc.3
-      IL_0067:  call       int32 [mscorlib]System.Runtime.InteropServices.Marshal::SizeOf<class Jose.native.NCrypt/NCryptBuffer>(!!0)
+      IL_0067:  call       int32 [mscorlib]System.Runtime.InteropServices.Marshal::SizeOf(object)
       IL_006c:  add
       IL_006d:  stloc.0
       IL_006e:  ldloc.2
@@ -10729,304 +10811,6 @@
   }
 } // end of class Jose.native.NCrypt
 
-.class public auto ansi beforefieldinit Jose.netstandard1_4.EcdsaUsingSha
-       extends [mscorlib]System.Object
-       implements Jose.IJwsAlgorithm
-{
-  .field private int32 keySize
-  .method public hidebysig specialname rtspecialname 
-          instance void  .ctor(int32 keySize) cil managed
-  {
-    // Code size       14 (0xe)
-    .maxstack  8
-    IL_0000:  ldarg.0
-    IL_0001:  call       instance void [mscorlib]System.Object::.ctor()
-    IL_0006:  ldarg.0
-    IL_0007:  ldarg.1
-    IL_0008:  stfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-    IL_000d:  ret
-  } // end of method EcdsaUsingSha::.ctor
-
-  .method public hidebysig newslot virtual final 
-          instance uint8[]  Sign(uint8[] securedInput,
-                                 object key) cil managed
-  {
-    // Code size       205 (0xcd)
-    .maxstack  5
-    .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
-             class [System.Core]System.Security.Cryptography.ECDsaCng V_1,
-             uint8[] V_2,
-             class [System.Core]System.Security.Cryptography.ECDsa V_3,
-             class [mscorlib]System.Security.Cryptography.CryptographicException V_4)
-    .try
-    {
-      IL_0000:  ldarg.2
-      IL_0001:  isinst     [System.Core]System.Security.Cryptography.CngKey
-      IL_0006:  brfalse.s  IL_0061
-
-      IL_0008:  ldarg.2
-      IL_0009:  castclass  [System.Core]System.Security.Cryptography.CngKey
-      IL_000e:  stloc.0
-      IL_000f:  ldloc.0
-      IL_0010:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
-      IL_0015:  ldarg.0
-      IL_0016:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_001b:  ldstr      "EcdsaUsingSha algorithm expected key of size {0} b"
-      + "its, but was given {1} bits"
-      IL_0020:  ldarg.0
-      IL_0021:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_0026:  box        [mscorlib]System.Int32
-      IL_002b:  ldloc.0
-      IL_002c:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
-      IL_0031:  box        [mscorlib]System.Int32
-      IL_0036:  call       string [mscorlib]System.String::Format(string,
-                                                                  object,
-                                                                  object)
-      IL_003b:  call       void Jose.Ensure::BitSize(int32,
-                                                     int32,
-                                                     string)
-      IL_0040:  ldloc.0
-      IL_0041:  newobj     instance void [System.Core]System.Security.Cryptography.ECDsaCng::.ctor(class [System.Core]System.Security.Cryptography.CngKey)
-      IL_0046:  stloc.1
-      .try
-      {
-        IL_0047:  ldloc.1
-        IL_0048:  ldarg.1
-        IL_0049:  ldarg.0
-        IL_004a:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.netstandard1_4.EcdsaUsingSha::get_Hash()
-        IL_004f:  callvirt   instance uint8[] [System.Core]System.Security.Cryptography.ECDsa::SignData(uint8[],
-                                                                                                        valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName)
-        IL_0054:  stloc.2
-        IL_0055:  leave.s    IL_00cb
-
-      }  // end .try
-      finally
-      {
-        IL_0057:  ldloc.1
-        IL_0058:  brfalse.s  IL_0060
-
-        IL_005a:  ldloc.1
-        IL_005b:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-        IL_0060:  endfinally
-      }  // end handler
-      IL_0061:  ldarg.2
-      IL_0062:  isinst     [System.Core]System.Security.Cryptography.ECDsa
-      IL_0067:  brfalse.s  IL_00b1
-
-      IL_0069:  ldarg.2
-      IL_006a:  castclass  [System.Core]System.Security.Cryptography.ECDsa
-      IL_006f:  stloc.3
-      IL_0070:  ldloc.3
-      IL_0071:  callvirt   instance int32 [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm::get_KeySize()
-      IL_0076:  ldarg.0
-      IL_0077:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_007c:  ldstr      "EcdsaUsingSha algorithm expected key of size {0} b"
-      + "its, but was given {1} bits"
-      IL_0081:  ldarg.0
-      IL_0082:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_0087:  box        [mscorlib]System.Int32
-      IL_008c:  ldloc.3
-      IL_008d:  callvirt   instance int32 [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm::get_KeySize()
-      IL_0092:  box        [mscorlib]System.Int32
-      IL_0097:  call       string [mscorlib]System.String::Format(string,
-                                                                  object,
-                                                                  object)
-      IL_009c:  call       void Jose.Ensure::BitSize(int32,
-                                                     int32,
-                                                     string)
-      IL_00a1:  ldloc.3
-      IL_00a2:  ldarg.1
-      IL_00a3:  ldarg.0
-      IL_00a4:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.netstandard1_4.EcdsaUsingSha::get_Hash()
-      IL_00a9:  callvirt   instance uint8[] [System.Core]System.Security.Cryptography.ECDsa::SignData(uint8[],
-                                                                                                      valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName)
-      IL_00ae:  stloc.2
-      IL_00af:  leave.s    IL_00cb
-
-      IL_00b1:  ldstr      "EcdsaUsingSha algorithm expects key to be of eithe"
-      + "r CngKey or ECDsa types."
-      IL_00b6:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-      IL_00bb:  throw
-
-    }  // end .try
-    catch [mscorlib]System.Security.Cryptography.CryptographicException 
-    {
-      IL_00bc:  stloc.s    V_4
-      IL_00be:  ldstr      "Unable to sign content."
-      IL_00c3:  ldloc.s    V_4
-      IL_00c5:  newobj     instance void Jose.JoseException::.ctor(string,
-                                                                   class [mscorlib]System.Exception)
-      IL_00ca:  throw
-
-    }  // end handler
-    IL_00cb:  ldloc.2
-    IL_00cc:  ret
-  } // end of method EcdsaUsingSha::Sign
-
-  .method public hidebysig newslot virtual final 
-          instance bool  Verify(uint8[] signature,
-                                uint8[] securedInput,
-                                object key) cil managed
-  {
-    // Code size       197 (0xc5)
-    .maxstack  5
-    .locals init (class [System.Core]System.Security.Cryptography.CngKey V_0,
-             class [System.Core]System.Security.Cryptography.ECDsaCng V_1,
-             bool V_2,
-             class [System.Core]System.Security.Cryptography.ECDsa V_3)
-    .try
-    {
-      IL_0000:  ldarg.3
-      IL_0001:  isinst     [System.Core]System.Security.Cryptography.CngKey
-      IL_0006:  brfalse.s  IL_0062
-
-      IL_0008:  ldarg.3
-      IL_0009:  castclass  [System.Core]System.Security.Cryptography.CngKey
-      IL_000e:  stloc.0
-      IL_000f:  ldloc.0
-      IL_0010:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
-      IL_0015:  ldarg.0
-      IL_0016:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_001b:  ldstr      "EcdsaUsingSha algorithm expected key of size {0} b"
-      + "its, but was given {1} bits"
-      IL_0020:  ldarg.0
-      IL_0021:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_0026:  box        [mscorlib]System.Int32
-      IL_002b:  ldloc.0
-      IL_002c:  callvirt   instance int32 [System.Core]System.Security.Cryptography.CngKey::get_KeySize()
-      IL_0031:  box        [mscorlib]System.Int32
-      IL_0036:  call       string [mscorlib]System.String::Format(string,
-                                                                  object,
-                                                                  object)
-      IL_003b:  call       void Jose.Ensure::BitSize(int32,
-                                                     int32,
-                                                     string)
-      IL_0040:  ldloc.0
-      IL_0041:  newobj     instance void [System.Core]System.Security.Cryptography.ECDsaCng::.ctor(class [System.Core]System.Security.Cryptography.CngKey)
-      IL_0046:  stloc.1
-      .try
-      {
-        IL_0047:  ldloc.1
-        IL_0048:  ldarg.2
-        IL_0049:  ldarg.1
-        IL_004a:  ldarg.0
-        IL_004b:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.netstandard1_4.EcdsaUsingSha::get_Hash()
-        IL_0050:  callvirt   instance bool [System.Core]System.Security.Cryptography.ECDsa::VerifyData(uint8[],
-                                                                                                       uint8[],
-                                                                                                       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName)
-        IL_0055:  stloc.2
-        IL_0056:  leave.s    IL_00c3
-
-      }  // end .try
-      finally
-      {
-        IL_0058:  ldloc.1
-        IL_0059:  brfalse.s  IL_0061
-
-        IL_005b:  ldloc.1
-        IL_005c:  callvirt   instance void [mscorlib]System.IDisposable::Dispose()
-        IL_0061:  endfinally
-      }  // end handler
-      IL_0062:  ldarg.3
-      IL_0063:  isinst     [System.Core]System.Security.Cryptography.ECDsa
-      IL_0068:  brfalse.s  IL_00b3
-
-      IL_006a:  ldarg.3
-      IL_006b:  castclass  [System.Core]System.Security.Cryptography.ECDsa
-      IL_0070:  stloc.3
-      IL_0071:  ldloc.3
-      IL_0072:  callvirt   instance int32 [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm::get_KeySize()
-      IL_0077:  ldarg.0
-      IL_0078:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_007d:  ldstr      "EcdsaUsingSha algorithm expected key of size {0} b"
-      + "its, but was given {1} bits"
-      IL_0082:  ldarg.0
-      IL_0083:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-      IL_0088:  box        [mscorlib]System.Int32
-      IL_008d:  ldloc.3
-      IL_008e:  callvirt   instance int32 [mscorlib]System.Security.Cryptography.AsymmetricAlgorithm::get_KeySize()
-      IL_0093:  box        [mscorlib]System.Int32
-      IL_0098:  call       string [mscorlib]System.String::Format(string,
-                                                                  object,
-                                                                  object)
-      IL_009d:  call       void Jose.Ensure::BitSize(int32,
-                                                     int32,
-                                                     string)
-      IL_00a2:  ldloc.3
-      IL_00a3:  ldarg.2
-      IL_00a4:  ldarg.1
-      IL_00a5:  ldarg.0
-      IL_00a6:  call       instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.netstandard1_4.EcdsaUsingSha::get_Hash()
-      IL_00ab:  callvirt   instance bool [System.Core]System.Security.Cryptography.ECDsa::VerifyData(uint8[],
-                                                                                                     uint8[],
-                                                                                                     valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName)
-      IL_00b0:  stloc.2
-      IL_00b1:  leave.s    IL_00c3
-
-      IL_00b3:  ldstr      "EcdsaUsingSha algorithm expects key to be of eithe"
-      + "r CngKey or ECDsa types."
-      IL_00b8:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-      IL_00bd:  throw
-
-    }  // end .try
-    catch [mscorlib]System.Security.Cryptography.CryptographicException 
-    {
-      IL_00be:  pop
-      IL_00bf:  ldc.i4.0
-      IL_00c0:  stloc.2
-      IL_00c1:  leave.s    IL_00c3
-
-    }  // end handler
-    IL_00c3:  ldloc.2
-    IL_00c4:  ret
-  } // end of method EcdsaUsingSha::Verify
-
-  .method family hidebysig specialname instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName 
-          get_Hash() cil managed
-  {
-    // Code size       84 (0x54)
-    .maxstack  2
-    IL_0000:  ldarg.0
-    IL_0001:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-    IL_0006:  ldc.i4     0x100
-    IL_000b:  bne.un.s   IL_0013
-
-    IL_000d:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA256()
-    IL_0012:  ret
-
-    IL_0013:  ldarg.0
-    IL_0014:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-    IL_0019:  ldc.i4     0x180
-    IL_001e:  bne.un.s   IL_0026
-
-    IL_0020:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA384()
-    IL_0025:  ret
-
-    IL_0026:  ldarg.0
-    IL_0027:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-    IL_002c:  ldc.i4     0x209
-    IL_0031:  bne.un.s   IL_0039
-
-    IL_0033:  call       valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName [mscorlib]System.Security.Cryptography.HashAlgorithmName::get_SHA512()
-    IL_0038:  ret
-
-    IL_0039:  ldstr      "Unsupported key size: '{0} bytes'"
-    IL_003e:  ldarg.0
-    IL_003f:  ldfld      int32 Jose.netstandard1_4.EcdsaUsingSha::keySize
-    IL_0044:  box        [mscorlib]System.Int32
-    IL_0049:  call       string [mscorlib]System.String::Format(string,
-                                                                object)
-    IL_004e:  newobj     instance void [mscorlib]System.ArgumentException::.ctor(string)
-    IL_0053:  throw
-  } // end of method EcdsaUsingSha::get_Hash
-
-  .property instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName
-          Hash()
-  {
-    .get instance valuetype [mscorlib]System.Security.Cryptography.HashAlgorithmName Jose.netstandard1_4.EcdsaUsingSha::get_Hash()
-  } // end of property EcdsaUsingSha::Hash
-} // end of class Jose.netstandard1_4.EcdsaUsingSha
-
 .class interface public abstract auto ansi Jose.jwe.IJweAlgorithm
 {
   .method public hidebysig newslot abstract virtual 
@@ -11060,13 +10844,13 @@
        extends [mscorlib]System.Object
 {
   .custom instance void [mscorlib]System.Runtime.CompilerServices.CompilerGeneratedAttribute::.ctor() = ( 01 00 00 00 ) 
-  .field static assembly initonly int64 '5DBC1A420B61F594A834C83E3DDC229C8AB77FDC' at I_0000F6B0
+  .field static assembly initonly int64 '5DBC1A420B61F594A834C83E3DDC229C8AB77FDC' at I_0000F49C
 } // end of class '<PrivateImplementationDetails>'
 
 
 // =============================================================
 
-.data cil I_0000F6B0 = bytearray (
+.data cil I_0000F49C = bytearray (
                  A6 A6 A6 A6 A6 A6 A6 A6) 
 // *********** DISASSEMBLY COMPLETE ***********************
 // WARNING: Created Win32 resource file jose-jwt.res

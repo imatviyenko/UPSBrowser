@@ -2,7 +2,6 @@
 <package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="b4bafdd8-e019-42c3-9a92-195001a4ee8f" solutionId="b4bafdd8-e019-42c3-9a92-195001a4ee8f" resetWebServer="false" sharePointProductVersion="15.0" name="UPSBrowser" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
   <assemblies>
     <customAssembly location="jose-jwt.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="lib\jose-jwt_signed.dll" />
-    <customAssembly location="Newtonsoft.Json.dll" deploymentTarget="GlobalAssemblyCache" sourcePath="lib\Newtonsoft.Json.dll" />
   </assemblies>
   <projectItems>
     <projectItemReference itemId="a7103aca-0e83-4ea6-a3c2-a9e086731a9a" />

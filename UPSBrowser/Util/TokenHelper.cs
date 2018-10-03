@@ -21,13 +21,21 @@ namespace Kcell.UPSBrowser
         {
             UPSBrowserLogger.LogDebug(loggingCategory, "TokenHelper.getTokenString invoked");
 
+
+            // In .NET 4.5 which is the target framework version, DateTimeOffset does not have the ToUnixTimeSeconds method which was only introduced in .NET 4.6
+            var dateNowUtc = DateTime.UtcNow;
+            var epoch = new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc);
+            var unixDateTime = (dateNowUtc - epoch).TotalSeconds;
+
+
             var payload = new Dictionary<string, object>()
             {
                 { "sub", signingCertificate.subject},
                 { "friendlyName", signingCertificate.friendlyName},
                 { "iss", signingCertificate.subject },
                 { "aud", Constants.jwtTokenAudience },
-                { "exp", DateTimeOffset.UtcNow.AddMinutes(Constants.jwtTokenLifetimeInMinutes).ToUnixTimeSeconds() }
+                //{ "exp", DateTimeOffset.UtcNow.AddMinutes(Constants.jwtTokenLifetimeInMinutes).ToUnixTimeSeconds() }
+                { "exp", unixDateTime }
             };
             var rsaCryptoServiceProvider = signingCertificate.cert.PrivateKey as RSACryptoServiceProvider;
 

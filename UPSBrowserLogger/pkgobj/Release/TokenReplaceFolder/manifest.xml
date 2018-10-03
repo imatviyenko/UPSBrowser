@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="5529df53-b21a-49e0-8ba1-4058dbdc11ab" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="Kcell.UPSBrowserLogger.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <FeatureManifests>
+    <FeatureManifest Location="UPSBrowserLogger_Kcell.UPSBrowserLogger\Feature.xml" />
+  </FeatureManifests>
+</Solution>

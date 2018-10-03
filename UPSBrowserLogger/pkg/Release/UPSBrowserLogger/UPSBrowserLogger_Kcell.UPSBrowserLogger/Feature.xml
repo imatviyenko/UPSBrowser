@@ -1,0 +1,2 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Feature xmlns="http://schemas.microsoft.com/sharepoint/" AlwaysForceInstall="TRUE" Id="19e7174f-59ff-4cea-b60b-b3d6f3ebfc76" ReceiverAssembly="Kcell.UPSBrowserLogger, Version=1.0.0.0, Culture=neutral, PublicKeyToken=9330ff87fa1fb719" ReceiverClass="Kcell.UPSBrowser.UPSBrowserLoggerEventReceiver" Scope="Farm" Title="Kcell.UPSBrowserLogger"></Feature>

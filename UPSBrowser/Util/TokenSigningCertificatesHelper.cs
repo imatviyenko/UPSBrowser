@@ -36,7 +36,7 @@ namespace Kcell.UPSBrowser
 
                         foreach (X509Certificate2 cert in store.Certificates)
                         {
-                            UPSBrowserLogger.LogDebug(loggingCategory, $"cert.FriendlyName: {cert.FriendlyName}, cert.FriendlyName: {cert.HasPrivateKey}, cert.NotAfter: {cert.NotAfter}");
+                            UPSBrowserLogger.LogDebug(loggingCategory, $"cert.FriendlyName: {cert.FriendlyName}, cert.HasPrivateKey: {cert.HasPrivateKey}, cert.NotAfter: {cert.NotAfter}");
                             if (cert.HasPrivateKey && (cert.NotAfter > DateTime.Now))
                             {
                                 TokenSigningCertificate certToAdd = new TokenSigningCertificate

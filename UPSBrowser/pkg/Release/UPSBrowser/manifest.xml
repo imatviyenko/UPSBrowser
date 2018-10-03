@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Solution xmlns="http://schemas.microsoft.com/sharepoint/" SolutionId="b4bafdd8-e019-42c3-9a92-195001a4ee8f" SharePointProductVersion="15.0">
+  <Assemblies>
+    <Assembly Location="jose-jwt.dll" DeploymentTarget="GlobalAssemblyCache" />
+    <Assembly Location="Kcell.UPSBrowser.dll" DeploymentTarget="GlobalAssemblyCache" />
+  </Assemblies>
+  <TemplateFiles>
+    <TemplateFile Location="Layouts\UPSBrowser\css\upsbrowser.v1.css" />
+    <TemplateFile Location="Layouts\UPSBrowser\images\InitialImage.png" />
+    <TemplateFile Location="Layouts\UPSBrowser\images\SelectedButton.png" />
+    <TemplateFile Location="Layouts\UPSBrowser\js\upsbrowser.v1.js" />
+    <TemplateFile Location="Layouts\UPSBrowser\js\upsuser.v1.js" />
+    <TemplateFile Location="Layouts\UPSBrowser\upsbrowser.aspx" />
+    <TemplateFile Location="Layouts\UPSBrowser\upsuser.aspx" />
+  </TemplateFiles>
+</Solution>
