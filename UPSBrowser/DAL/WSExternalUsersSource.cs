@@ -80,7 +80,7 @@ namespace Kcell.UPSBrowser
 
         private string callJsonWebService(string path, bool isPostRequest, string queryParameters, string body)
         {
-            UPSBrowserLogger.LogDebug(loggingCategory, "WSExternalUsersSource.callWebService invoked");
+            UPSBrowserLogger.LogDebug(loggingCategory, "WSExternalUsersSource.callJsonWebService invoked");
             UPSBrowserLogger.LogDebug(loggingCategory, $"path: {path}");
             UPSBrowserLogger.LogDebug(loggingCategory, $"isPostRequest: {isPostRequest}");
             UPSBrowserLogger.LogDebug(loggingCategory, $"queryParameters: {queryParameters}");

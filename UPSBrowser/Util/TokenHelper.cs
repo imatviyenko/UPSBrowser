@@ -37,16 +37,21 @@ namespace Kcell.UPSBrowser
                 //{ "exp", DateTimeOffset.UtcNow.AddMinutes(Constants.jwtTokenLifetimeInMinutes).ToUnixTimeSeconds() }
                 { "exp", unixDateTime }
             };
+
+            // If you get "Keyset does not exist" exception at this stage, make sure the the SP web app pool account has access to the private key of the selected cert
+            UPSBrowserLogger.LogDebug(loggingCategory, "Trying to get the cert's private key...");
             var rsaCryptoServiceProvider = signingCertificate.cert.PrivateKey as RSACryptoServiceProvider;
 
             string token = null;
             try
             {
+                UPSBrowserLogger.LogDebug(loggingCategory, "Trying to generate a JWT token string using the private key...");
                 token = Jose.JWT.Encode(payload, rsaCryptoServiceProvider, JwsAlgorithm.RS256);
             } catch (System.Security.Cryptography.CryptographicException cryptoException)
             {
+                UPSBrowserLogger.LogDebug(loggingCategory, "System.Security.Cryptography.CryptographicException catched");
+
                 // Look for "Invalid algorithm specified" exception - 
-                // that means the we need to 
                 UPSBrowserLogger.LogInfo(loggingCategory, $"cryptoException.Message: {cryptoException.Message}");
 
                 var privateKey = signingCertificate.cert.PrivateKey as RSACryptoServiceProvider;
@@ -66,6 +71,7 @@ namespace Kcell.UPSBrowser
                         RSACryptoServiceProvider rsaCryptoServiceProvider_MSEnchancedCSP = new RSACryptoServiceProvider();
                         rsaCryptoServiceProvider_MSEnchancedCSP.ImportParameters(privateKey.ExportParameters(true));
 
+                        UPSBrowserLogger.LogDebug(loggingCategory, "Trying to generate a JWT token string again using the reimported private key...");
                         token = Jose.JWT.Encode(payload, rsaCryptoServiceProvider_MSEnchancedCSP, JwsAlgorithm.RS256);
                     });
                 } else

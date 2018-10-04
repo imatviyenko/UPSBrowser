@@ -176,7 +176,7 @@ namespace Kcell.UPSBrowser
         public User updateUser(User updatedUser)
         {
             UPSBrowserLogger.LogDebug(loggingCategory, "updateUser invoked");
-            UPSBrowserLogger.LogDebug(loggingCategory, $"newUser.AccountName: {updatedUser.AccountName}, newUser.WorkEmail: {updatedUser.WorkEmail}, newUser.DisplayName: {updatedUser.DisplayName}");
+            UPSBrowserLogger.LogDebug(loggingCategory, $"updatedUser.AccountName: {updatedUser.AccountName}, updatedUser.WorkEmail: {updatedUser.WorkEmail}, updatedUser.DisplayName: {updatedUser.DisplayName}");
 
             User userToReturn = null;
             string accountNameForLogger = updatedUser.AccountName;
@@ -213,6 +213,7 @@ namespace Kcell.UPSBrowser
                         accountNameForLogger = userProfile.AccountName;
 
                         //userProfile[PropertyConstants.WorkEmail].Value = updatedUser.WorkEmail;
+                        userProfile[PropertyConstants.PreferredName].Value = updatedUser.DisplayName;
                         userProfile[PropertyConstants.FirstName].Value = updatedUser.FirstName;
                         userProfile[PropertyConstants.LastName].Value = updatedUser.LastName;
                         userProfile[PropertyConstants.Department].Value = updatedUser.Department;
